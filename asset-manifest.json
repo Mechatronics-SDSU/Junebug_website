@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Junebug_website/static/css/main.073c9b0a.css",
+    "main.js": "/Junebug_website/static/js/main.980a0ea9.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Junebug_website/static/js/787.28cb0dcd.chunk.js",
+    "static/media/logo.svg": "/Junebug_website/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/Junebug_website/index.html",
+    "main.073c9b0a.css.map": "/Junebug_website/static/css/main.073c9b0a.css.map",
+    "main.980a0ea9.js.map": "/Junebug_website/static/js/main.980a0ea9.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Junebug_website/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.980a0ea9.js"
+  ]
+}
