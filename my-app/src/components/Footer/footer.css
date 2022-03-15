@@ -1,0 +1,22 @@
+.footer {
+    background-color: red;
+    padding: 72px 0px 88px;
+    margin-top: 80px;
+}
+
+.container {
+    padding: 0px 40px;
+}
+
+.flex {
+    display: flex;
+}
+
+.copyright-spacer{
+    flex: 1 0 36px;
+}
+
+.nav-link{
+    font-size: 16px;
+    font-family: sans-serif;
+}

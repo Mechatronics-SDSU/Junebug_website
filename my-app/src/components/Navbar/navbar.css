@@ -1,0 +1,20 @@
+.nav-item {
+    display: inline;
+    padding: 0px 16px;
+  }
+
+.navbar-nav {
+  list-style: none;
+}
+
+.navbar-brand {
+  font-family:'Helvetica';
+  font-size: 40px;
+}
+.navbar {
+  padding: 0px 40px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 96px;
+}
