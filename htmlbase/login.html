@@ -1,63 +1,66 @@
 <!DOCTYPE HTML>
-<html id="login">
-	<head>
-		<title>Junebug Beta</title>
-		<link rel="stylesheet" href="assets/css/login.css" />
-	</head>
-	<body>
-		<!-- Header -->
-			<header class="header">
-				<img src="images/logo-whiteoutline2.png" style="width:100%; max-width: 170px; height: auto;">
-				<div id="title">
-					<h1>Junebug</h1>
-					<p>SDSU's Very Own Delivery Robot Built For You </p>
+<html>
+
+<head>
+	<title>Junebug Beta</title>
+	<link rel="stylesheet" href="assets/css/login.css" />
+</head>
+
+<body>
+	<!-- Header -->
+	<header class="header">
+		<img src="images/logo-whiteoutline2.png" style="width:100%; max-width: 170px; height: auto;">
+		<div id="title">
+			<h1>Junebug</h1>
+			<p>SDSU's Very Own Delivery Robot Built For You </p>
+		</div>
+	</header>
+
+	<!-- Nav Bar-->
+	<nav class="nav" id="myNavbar">
+		<ul>
+			<li><a href="/htmlbase" class="active">Home</a></li>
+			<li><a href="#Order">Order</a></li>
+			<li><a href="#Check Out">Check Out</a></li>
+			<li><a href="/htmlbase/login.html">Sign In</a></li>
+		</ul>
+	</nav>
+
+	<!-- Main -->
+	<div class="main">
+
+		<!-- Introduction -->
+		<section id="Sign In" class="main">
+			<div>
+				<form>
+					<label for="fname">SDSU email</label><br>
+					<input type="text" id="Username" name="Username"><br>
+					<label for="lname">Password</label><br>
+					<input type="text" id="Password" name="Password"><br><br>
+					<input type="submit" value="Sign In">
+				</form><br></br>
+			</div>
+		</section>
+	</div>
+	<!-- Footer -->
+	<footer class="footer">
+		<section>
+			<div class="container">
+				<div class="flex">
+					<a href="/htmlbase/about.html">
+						About
 				</div>
-			</header>
-
-		<!-- Nav Bar-->
-			<nav class="nav" id="myNavbar">
-				<ul>
-					<li><a href="/htmlbase" class="active">Home</a></li>
-					<li><a href="#Order">Order</a></li>
-					<li><a href="#Check Out">Check Out</a></li>
-					<li><a href="/htmlbase/login.html">Sign In</a></li>
-				</ul>
-			</nav>
-
-		<!-- Main -->
-			<div class="main">
-
-				<!-- Introduction -->
-					<section id="Sign In" class="main">
-							<div>
-								<form >
-                                    <label for="fname">SDSU email</label><br>
-                                    <input type="text" id="Username" name="Username"><br>
-                                    <label for="lname">Password</label><br>
-                                    <input type="text" id="Password" name="Password"><br><br>
-                                    <input type="submit" value="Sign In">
-                                </form><br></br>
-							</div>
-					</section>
-            </div>        
-		<!-- Footer -->
-		<footer id="footer">
-			<section>
-				<div class="container">
-					<div class="flex">
-						<a href="/htmlbase/about.html">
-							About
-					</div>
-					<div class="flex">
-						<p class="copyright">
-							Copyright &copy; SDSU Mechatronics 2022
-						</p>
-					</div>
+				<div class="flex">
+					<p class="copyright">
+						Copyright &copy; SDSU Mechatronics 2022
+					</p>
 				</div>
-			</section>
-		</footer>
+			</div>
+		</section>
+	</footer>
 
-			<script src="assets/js/sticky.js"></script>
+	<script src="assets/js/sticky.js"></script>
 
-	</body>
+</body>
+
 </html>
