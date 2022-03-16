@@ -1,3 +1,14 @@
+.navbar {
+  padding: 0px 40px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 96px;
+  position: fixed;
+  top: 0;
+  background-color: darkred;
+}
+
 .nav-item {
     display: inline;
     padding: 0px 16px;
@@ -11,10 +22,8 @@
   font-family:'Helvetica';
   font-size: 40px;
 }
-.navbar {
-  padding: 0px 40px;
-  align-items: center;
+
+.navbar-spacer {
   display: flex;
-  justify-content: space-between;
-  height: 96px;
+  padding-left: 90em;
 }

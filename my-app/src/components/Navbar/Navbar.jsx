@@ -5,14 +5,15 @@ function Navbar() {
   return (
     <header className="navbar">
         <NavLink className="navbar-brand" to="/">
-        Junebug
+          Junebug
         </NavLink>
+        <div className="navbar-spacer"></div>
         <ul className="navbar-nav">
-            <li className="nav-item">
+          <li className="nav-item">
             <NavLink className="nav-link" to="/">
-                Sign In
+              Sign In
             </NavLink>
-            </li>
+          </li>
         </ul>
     </header>
   );
