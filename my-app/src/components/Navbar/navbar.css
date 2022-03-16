@@ -2,11 +2,11 @@
   padding: 0px 40px;
   align-items: center;
   display: flex;
-  justify-content: space-between;
   height: 96px;
   position: fixed;
   top: 0;
   background-color: darkred;
+  width: 100%;
 }
 
 .nav-item {
@@ -24,6 +24,7 @@
 }
 
 .navbar-spacer {
-  display: flex;
-  padding-left: 90em;
+  margin: 0;
+  flex-shrink: 0;
+  width: 32px;
 }
