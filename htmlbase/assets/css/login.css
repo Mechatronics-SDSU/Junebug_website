@@ -25,6 +25,8 @@
 body {
 background-color: #ff0000;
 color: white;
+display: flex;
+flex-direction: column;
 }
 /* this is important */
 a {
@@ -32,6 +34,7 @@ transition: color 0.2s ease, border-bottom 0.2s ease;
 text-decoration: none;
 border-bottom: dotted 1px;
 color: inherit;
+
 }
 
 a:hover {
@@ -170,8 +173,8 @@ width: 30em;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    display: block
-    width: 10em
+    display: block;
+    
 }
 
     .main > .main {
