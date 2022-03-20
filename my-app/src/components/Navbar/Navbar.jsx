@@ -1,19 +1,22 @@
 import { NavLink } from "react-router-dom";
-import "./navbar.css"
+import "./navbar.css";
+import { Button } from "..";
+import {ReactComponent as Logo} from "../../assets/mech_logo.svg"
 
 function Navbar() {
   return (
-    <header className="navbar">
-      <NavLink className="navbar-brand" to="/">
-        Junebug
-      </NavLink>
-      <div className="navbar-spacer"></div>
-      <div className="navbar-item">
-          <NavLink className="nav-link" to="/">
-            Sign In
-          </NavLink>
+    <nav className="navbar">
+      <div className="navbar-container">
+        <NavLink className="navbar-logo" to="/">
+          <Logo height="75px" width="100"/>
+          <text className="navbar-logo-text">Junebug</text>
+        </NavLink>
+        <div className="navbar-btn">
+          <Button name="SIGN IN">
+          </Button>
+        </div>
       </div>
-    </header>
+    </nav>
   );
 }
 
