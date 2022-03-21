@@ -5,6 +5,7 @@ import {
   About,
   Home,
   Footer,
+  Login,
 } from "./components";
 
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
       <Footer />
