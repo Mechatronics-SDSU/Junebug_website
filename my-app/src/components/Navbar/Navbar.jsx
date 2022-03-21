@@ -8,7 +8,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <NavLink className="navbar-logo" to="/">
-          <Logo height="75px" width="100"/>
+          <Logo height="75px" width="80px" align="left"/>
           <text className="navbar-logo-text">Junebug</text>
         </NavLink>
         <div className="navbar-btn">

@@ -6,7 +6,9 @@
   display: flex;
   height: 96px;
   top: 0;
-  background-color: #ff0000;
+  background-color: rgba(255, 0, 0, 0.5);
+  border-bottom-left-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
 }
 
 .navbar-container {
@@ -31,6 +33,7 @@
   font-family:'Helvetica';
   font-size: 50px;
   color: white;
+  padding: 10px;
 }
 
 .navbar-logo-text:hover {

@@ -1,19 +1,8 @@
 .footer {
     background-color: #ff0000;
-    padding: 72px 0px 88px;
-    margin-top: 80px;
-}
-
-.container {
-    padding: 0px 40px;
-}
-
-.flex {
+    padding: 72px 40px 88px;
+    color: white;
     display: flex;
-}
-
-.copyright-spacer{
-    flex: 1 0 36px;
 }
 
 .nav-link{

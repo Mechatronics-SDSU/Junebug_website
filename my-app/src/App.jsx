@@ -7,19 +7,19 @@ import {
   Footer,
 } from "./components";
 
+
 function App() {
   return (
     <Router>
-    <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-    </Routes>
-    <div>
-      <h1>Test</h1>
-    </div>
-    <Footer />
-  </Router>
+      <Navbar />
+      <div className='wrapper'>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
+      <Footer />
+    </Router>
   );
 }
 
