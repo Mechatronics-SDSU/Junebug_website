@@ -12,8 +12,9 @@ function Navbar() {
           <text className="navbar-logo-text">Junebug</text>
         </NavLink>
         <div className="navbar-btn">
-          <Button name="SIGN IN">
-          </Button>
+          <Button name="CART" route="/cart"/>
+          <Button name="ORDER" route="/order"/>
+          <Button name="SIGN IN" route="/login"/>
         </div>
       </div>
     </nav>

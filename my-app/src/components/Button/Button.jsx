@@ -3,7 +3,7 @@ import "./button.css";
 
 function Button (props) {
     return (
-        <Link to='/login' className="btn-container">
+        <Link to={props.route} className="btn-container">
             <button className="btn">{props.name}</button>
         </Link>
     );

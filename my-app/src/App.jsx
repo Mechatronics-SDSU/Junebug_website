@@ -6,6 +6,8 @@ import {
   Home,
   Footer,
   Login,
+  Order,
+  Cart,
 } from "./components";
 
 
@@ -18,6 +20,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
       <Footer />

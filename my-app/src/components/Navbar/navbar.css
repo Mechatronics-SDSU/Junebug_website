@@ -39,3 +39,9 @@
 .navbar-logo-text:hover {
   color:#242424;
 }
+
+.navbar-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 15%;
+}
