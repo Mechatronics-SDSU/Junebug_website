@@ -6,3 +6,4 @@ export { default as Button } from "./Button/Button";
 export { default as Login } from "./Pages/Login";
 export { default as Order } from "./Pages/Order";
 export { default as Cart } from "./Pages/Cart";
+export { default as Card } from "./Card/Card";
