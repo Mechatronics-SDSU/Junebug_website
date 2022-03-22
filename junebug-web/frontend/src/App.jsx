@@ -17,11 +17,11 @@ function App() {
       <Navbar />
       <div className='wrapper'>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/order" element={<Order />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route exact path="/Junebug_website" element={<Home />} />
+          <Route exact path="/Junebug_website/about" element={<About />} />
+          <Route exact path="/Junebug_website/login" element={<Login />} />
+          <Route exact path="/Junebug_website/order" element={<Order />} />
+          <Route exact path="/Junebug_website/cart" element={<Cart />} />
         </Routes>
       </div>
       <Footer />

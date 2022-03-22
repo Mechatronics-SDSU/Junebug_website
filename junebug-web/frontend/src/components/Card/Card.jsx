@@ -12,7 +12,7 @@ function Card({title, body}) {
             <div className="card-body">
                 <p>{body}</p>
             </div>
-            <Button route="/" name="View Menu"/>
+            <Button route="/Junebug_website" name="View Menu"/>
         </div>
     );
 }

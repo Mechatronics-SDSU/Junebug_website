@@ -5,7 +5,7 @@ function Footer() {
     return (
         <footer className="footer">
             <div className="container">
-                <NavLink className="nav-link" to="/about">
+                <NavLink className="nav-link" to="/Junebug_website/about">
                     About
                 </NavLink>
                 <p>Copyright &copy; SDSU Mechatronics 2022</p>
