@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Junebug_website/static/css/main.7e22a424.css",
-    "main.js": "/Junebug_website/static/js/main.a830726e.js",
+    "main.js": "/Junebug_website/static/js/main.bb62ddc5.js",
     "static/js/787.8462a9d3.chunk.js": "/Junebug_website/static/js/787.8462a9d3.chunk.js",
     "static/media/mech_logo.svg": "/Junebug_website/static/media/mech_logo.7ca08b57739982b7238762653ff8a782.svg",
     "static/media/sdsumap.jpg": "/Junebug_website/static/media/sdsumap.0cb7b113c824252e0b67.jpg",
@@ -9,11 +9,11 @@
     "static/media/genericdeliveryrobot.jpg": "/Junebug_website/static/media/genericdeliveryrobot.6c19bbd652cd9640f9c8.jpg",
     "index.html": "/Junebug_website/index.html",
     "main.7e22a424.css.map": "/Junebug_website/static/css/main.7e22a424.css.map",
-    "main.a830726e.js.map": "/Junebug_website/static/js/main.a830726e.js.map",
+    "main.bb62ddc5.js.map": "/Junebug_website/static/js/main.bb62ddc5.js.map",
     "787.8462a9d3.chunk.js.map": "/Junebug_website/static/js/787.8462a9d3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7e22a424.css",
-    "static/js/main.a830726e.js"
+    "static/js/main.bb62ddc5.js"
   ]
 }
