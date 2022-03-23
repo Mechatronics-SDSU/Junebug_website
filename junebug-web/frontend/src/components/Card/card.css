@@ -2,7 +2,7 @@
     width: 200px;
     overflow: hidden;
     box-shadow: 0px 0px 15px -15px;
-    background-color: blueviolet;
+    background-color: lightcoral;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -14,7 +14,7 @@
     transform: scale(1.1);
     box-shadow: 0px 0px 15px 0px;
 }
-
+ 
 .card-image{
     overflow: hidden;
     height: 200px;
