@@ -1,15 +1,22 @@
-Now
+3/16
 - work on the CSS and consolidate from inline-htmls
+
 3/20
 - start on database-> find out all of the database info and tables we want to use
 - move frontend to React
+
 3/23
 - front end showcase 1pm
+- FEEDBACK: Add search bar for each menu to filter items (Jquery autocomplete)
+- Database Tables: User Auth, Orders, Robots, Restuarants
+
 3/24
-- Design meeting w/ Johanna 5:30-6:30
+- Design meeting w/ Johanna 1pm
+
 3/27
 - continue working on the database
 - added further frontend pages
+
 4/3
 - Start API Flask
 

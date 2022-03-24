@@ -82,3 +82,17 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.menu {
+  justify-content: center;
+  height: 100vh;
+  background-color: white;
+  overflow: auto;
+}
+
+.cart {
+  justify-content: center;
+  height: 100vh;
+  background-color: white;
+  overflow: auto;
+}
