@@ -1,9 +1,9 @@
-import { Button } from "..";
+import { NavLink } from "react-router-dom";
 import "./card.css";
 
-function Card({title, body}) {
+function Card({title, body, route}) {
     return (
-        <div className="card">
+        <NavLink className="card" to={route}>
             <div className="card-image">
             </div>
             <div className="card-title">
@@ -12,8 +12,7 @@ function Card({title, body}) {
             <div className="card-body">
                 <p>{body}</p>
             </div>
-            <Button route="/Junebug_website/menu" name="View Menu"/>
-        </div>
+        </NavLink>
     );
 }
 

@@ -8,3 +8,4 @@ export { default as Order } from "./Pages/Order";
 export { default as Cart } from "./Pages/Cart";
 export { default as Card } from "./Card/Card";
 export { default as Menu } from "./Pages/Menu";
+export { default as Modal } from "./Modal/Modal";
