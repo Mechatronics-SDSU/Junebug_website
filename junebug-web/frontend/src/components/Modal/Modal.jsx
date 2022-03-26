@@ -14,12 +14,15 @@ function Modal({ setShowModal }) {
     };
 
     return ReactDom.createPortal(
+        <>
+        <div className="modal-overlay"/>
         <div className="modal-container" ref={modalRef} onClick={closeModal}>
             <div className="modal">
                 <h1>Item Options</h1>
                 <button onClick={() => setShowModal(false)}>X</button>
             </div>
-        </div>,
+        </div>
+        </>,
         document.getElementById("modal-hook")
     );
 }

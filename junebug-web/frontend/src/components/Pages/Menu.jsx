@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Card } from "..";
 import { Modal } from  "..";
 
-const menuRoute = "/Junebug_website/menu";
-
 // Do some fetch of restuarant items from backend
 
 function Menu() {
@@ -11,18 +9,18 @@ function Menu() {
     
     const openModal = () => {
         setShowModal(true);
+        console.log("Modal Click");
     };
 
     return(
         <div className="menu">
             <h1>Menu</h1>
-            <button onClick={openModal}>Open Modal</button>
-            {showModal ? <Modal setShowModal={setShowModal}/> : null}
             <div className="card-container">
-                <Card title="Burrito" body="Bean and Cheese" route={menuRoute}/>
-                <Card title="Salad" body="Mango Avocado" route={menuRoute}/>
-                <Card title="Taco" body="Mahi Mahi Fish Taco" route={menuRoute}/>
+                <Card title="Burrito" body="Bean and Cheese" isModal={openModal}/>
+                <Card title="Salad" body="Mango Avocado" isModal={openModal}/>
+                <Card title="Taco" body="Mahi Mahi Fish Taco" isModal={openModal}/>
             </div>
+            {showModal ? <Modal setShowModal={setShowModal}/> : null}
         </div>
     );
 }
