@@ -1,0 +1,44 @@
+Adding Data to the Database
+
+- the first script is a test which uses an API request to get coin prices and put them into the server
+- the server is being stored on the monogodb cloud using a free cluster or whatever that means
+----------------------------------------------------------------------------------------------------------
+from pymongo import MongoClient
+import requests
+
+# Connect to the database with the connection string we got from Atlas, replacing user and password.
+client = MongoClient('mongodb+srv://Junebug:Junebug101@junebug0.3ccxx.mongodb.net/test?retryWrites=true&w=majority')
+
+# Next we define the database we are using.
+# It does not have to exist first, like with relational databases.
+db = client.get_database('coin_markets')
+
+# Now, we make the API call and prices the results to the terminal.
+prices = requests.get('https://api.coingecko.com/api/v3//coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
+prices = prices.json()
+print(prices)
+
+# We define the collection we will store this data in
+db_prices = db.get_collection('prices')
+#insert the data into the collection.
+inserted = db_prices.insert_many(prices)
+# Print a count of documents inserted.
+print(str(len(inserted.inserted_ids)) + " documents inserted")
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Getting data from the database
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+from pymongo import MongoClient
+
+# Connect to the MongoDB database using our connection string.
+client = MongoClient('mongodb+srv://myUser:passwords@cluster0.sqdyt.mongodb.net/test?retryWrites=true&w=majority')
+
+# Connect to the coin_markets database and the prices collection.
+db = client.get_database('coin_markets')
+db_prices = db.get_collection('prices')
+
+# Search for records where the price_change_24h value is greater than 1000, loop the results, and print them to the terminal.
+for doc in db_prices.find({"price_change_24h": {"$gt": 1000} }):
+    print(doc)
+---------------------------------------------------------------------------------------------------------------------------------------------------------
