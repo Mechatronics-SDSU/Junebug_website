@@ -22,3 +22,17 @@
 
 5/3 or 5/5
 - Final Demo
+
+
+
+
+
+
+
+Features to add
+- restaurant search with auto-finish
+    - use function similar to getnames to get all restaurant names and then send that to the search bar
+- login 
+    - change menu options 
+    - return user first name
+- sign up page

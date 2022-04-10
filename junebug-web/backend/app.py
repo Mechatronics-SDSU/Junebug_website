@@ -13,7 +13,7 @@ cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 #---------------mongodb setup and db/collections-------------------------
-client = MongoClient('mongodb+srv://Junebug:Junebug101@junebug0.3ccxx.mongodb.net/test?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://mechatronics_sdsu:Perseverance2017@junebug.qlbq2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 #specify what databases
 jb = client.get_database('Junebug')
 #specify what collections
