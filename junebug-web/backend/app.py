@@ -42,9 +42,21 @@ robots = jb.get_collection('Robots')
 def my_profile():
     response_body = {
         "name": "Nagato",
-        "about" :"Hello! I'm a full stack developer that loves python and javascript"
+        "about": "Hello! I'm a full stack developer that loves python and javascript"
     }
 
+    return response_body
+
+@api.route('/restaurants')
+def my_restaurants():
+    response_body = {
+        "restaurants": [
+            {
+                "name": "Panda Express",
+                "price": "$$"
+            }
+        ]
+    }
     return response_body
 
 if __name__ == "__main__":
