@@ -1,6 +1,6 @@
 from flask import Flask, redirect, render_template, url_for
 from pymongo import MongoClient
-from flask.json import jsonify
+from flask_cors import CORS, cross_origin
 import json
 
 # create an instance of the flask class 
@@ -19,44 +19,32 @@ robots = jb.get_collection('Robots')
 #
 
 # # create user rough draft, no certification
-@api.route('/createaccount/')
-def adduser(firstName, lastName, email, password, phoneNum, address):
-    user.insert_one({"firstName": firstName.lower(), "lastName": lastName.lower(), "email": email.lower(), "password": password, "phoneNum": phoneNum.lower(), "address": address.lower()})
-    return redirect(url_for('/'))
+# @app.route('/createuser/')
+# def adduser(firstName, lastName, email, password, phoneNum, address):
+#     user.insert_one({"firstName": firstName.lower(), "lastName": lastName.lower(), "email": email.lower(), "password": password, "phoneNum": phoneNum.lower(), "address": address.lower()})
+#     return redirect(url_for('getnames'))
 
 # # adding user to the database
 # @app.route('/addname/<name>/')
 # def addname(user):
 #     user.insert_one({"name": user.lower()})
 #     return redirect(url_for('getnames'))
-
 @api.route('/')
 def flaskpage():
     fp = "Welcome!!! I dont know why i cant return the db documents<br> /getrestnames<br> /profile"
     return fp
 
 # getting all names from the database
-@api.route('/getrestnames/')
+@api.route('/getrestnames')
 def getrestaurantnames():
-    return jsonify([i for i in rest.find({},{"_id" : 0, "name": 1})])
+    x = rest.find_one()
+    return x
 
 @api.route('/profile')
 def my_profile():
     response_body = {
         "name": "Nagato",
         "about" :"Hello! I'm a full stack developer that loves python and javascript"
-    }
-    return response_body
-
-@api.route('/restaurants')
-def my_restaurants():
-    response_body = {
-        "restaurants": [
-            {
-                "name": "Panda Express",
-                "price": "$$"
-            }
-        ]
     }
     return response_body
 
