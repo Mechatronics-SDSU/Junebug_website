@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useEffect } from 'react';
 import {
   Navbar,
   About,
@@ -13,6 +14,14 @@ import {
 
 
 function App() {
+  useEffect(() => {
+    fetch("/restaurants").then(response => 
+      response.json().then(data => {
+            console.log(data);
+      })
+    );
+  }, []);
+
   return (
     <Router>
       <Navbar />
