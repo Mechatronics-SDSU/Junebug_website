@@ -7,7 +7,7 @@ import json
 api = Flask(__name__)
 title = "Database pull test"
 #---------------mongodb setup and db/collections-------------------------
-client = MongoClient('mongodb+srv://Junebug:Junebug101@junebug0.3ccxx.mongodb.net/test?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://Junebug:Junebug@cluster0.9zuwh.mongodb.net/Junebug?retryWrites=true&w=majority')
 #specify what databases
 jb = client.get_database('Junebug')
 #specify what collections
@@ -38,7 +38,14 @@ def flaskpage():
 # getting all names from the database
 @api.route('/getrestnames/')
 def getrestaurantnames():
-    return jsonify([i for i in rest.find({},{"_id" : 0, "name": 1})])
+    return jsonify([i for i in rest.find({},{"_id" : 0, "name": 1, "price": 1})])
+
+@api.route('/resty/')
+def resty():
+    names = []
+    for i in rest.find({},{"_id" : 0, "name": 1, "price": 1}):
+        names.append(i)
+    return jsonify({'restaurants': names})
 
 @api.route('/profile')
 def my_profile():
