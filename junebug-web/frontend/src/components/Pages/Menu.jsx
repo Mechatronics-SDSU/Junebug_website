@@ -30,7 +30,7 @@ function Menu() {
                     );
                 })}
             </div>
-            {showModal ? <Modal setShowModal={setShowModal} /> : null}
+            {showModal ? <Modal setShowModal={setShowModal}/> : null}
         </div>
     );
 }

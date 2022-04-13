@@ -5,7 +5,7 @@ import ReactDom from "react-dom";
 
 // do some fetch of modal items from backend
 
-function Modal({ setShowModal }) {
+function Modal({ setShowModal, body }) {
     const modalRef = useRef();
     const closeModal = (e) => {
         if (e.target === modalRef.current) {
@@ -18,7 +18,7 @@ function Modal({ setShowModal }) {
         <div className="modal-overlay"/>
         <div className="modal-container" ref={modalRef} onClick={closeModal}>
             <div className="modal">
-                <h1>Item Options</h1>
+                <h1></h1>
                 <button onClick={() => setShowModal(false)}>X</button>
             </div>
         </div>
