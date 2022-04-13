@@ -32,7 +32,7 @@ def adduser(firstName, lastName, email, password, phoneNum, address):
 
 @api.route('/')
 def flaskpage():
-    fp = "Welcome!!! I dont know why i cant return the db documents<br> /getrestnames<br> /profile"
+    fp = "Welcome!!!<br> /getrestnames<br> /profile"
     return fp
 
 # getting all names from the database
@@ -55,25 +55,6 @@ def my_profile():
     }
     return response_body
 
-@api.route('/restaurants')
-def my_restaurants():
-    response_body = {
-        "restaurants": [
-            {
-                "name": "Panda Express",
-                "price": "$"
-            },
-            {
-                "name": "Rubio's",
-                "price": "$$"
-            },
-            {
-                "name": "Chipotle",
-                "price": "$$$"
-            }
-        ]
-    }
-    return response_body
 
 @api.route('/menu')
 def my_menu():
