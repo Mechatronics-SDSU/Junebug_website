@@ -54,7 +54,15 @@ def my_restaurants():
         "restaurants": [
             {
                 "name": "Panda Express",
+                "price": "$"
+            },
+            {
+                "name": "Rubio's",
                 "price": "$$"
+            },
+            {
+                "name": "Chipotle",
+                "price": "$$$"
             }
         ]
     }

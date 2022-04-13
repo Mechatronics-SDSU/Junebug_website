@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Card } from ".."
 
 const menuRoute="/Junebug_website/menu";
@@ -7,26 +7,29 @@ const menuRoute="/Junebug_website/menu";
 
 
 function Order() {
+
+    const [restaurants, setRestaurants] = useState([]);
+
+    useEffect(() => {
+        fetch("/restaurants").then(response => 
+          response.json().then(data => {
+                setRestaurants(data.restaurants);
+                console.log(data.restaurants);
+          })
+        );
+      }, [])
+
     return (
-        <>
         <div className="order">
             <h1>Available Restaurants</h1>
             <div className="card-container">
-                <Card title="Rubio's" body="This is a test" route={menuRoute}/>
-                <Card title="Panda Express" body="This is a test" route={menuRoute}/>
-                <Card title="Chipotle" body="This is a test" route={menuRoute}/>
-                <Card title="Rubio's" body="This is a test" route={menuRoute}/>
-                <Card title="Panda Express" body="This is a test" route={menuRoute}/>
-                <Card title="Chipotle" body="This is a test" route={menuRoute}/>
-                <Card title="Rubio's" body="This is a test" route={menuRoute}/>
-                <Card title="Panda Express" body="This is a test" route={menuRoute}/>
-                <Card title="Chipotle" body="This is a test" route={menuRoute}/>
-                <Card title="Rubio's" body="This is a test" route={menuRoute}/>
-                <Card title="Panda Express" body="This is a test" route={menuRoute}/>
-                <Card title="Chipotle" body="This is a test" route={menuRoute}/>
+                {restaurants.map(restaurant => {
+                    return (
+                    <Card title={restaurant.name} body="This is a test" route={menuRoute}/>
+                    );
+                })}
             </div>
         </div>
-        </>
     );
 }
 

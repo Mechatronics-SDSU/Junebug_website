@@ -14,14 +14,6 @@ import {
 
 
 function App() {
-  useEffect(() => {
-    fetch("/restaurants").then(response => 
-      response.json().then(data => {
-            console.log(data);
-      })
-    );
-  }, []);
-
   return (
     <Router>
       <Navbar />
