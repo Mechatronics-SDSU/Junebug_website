@@ -14,7 +14,6 @@ function Order() {
         fetch("/restaurants").then(response => 
           response.json().then(data => {
                 setRestaurants(data.restaurants);
-                console.log(data.restaurants);
           })
         );
       }, [])

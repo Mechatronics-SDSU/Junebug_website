@@ -68,5 +68,28 @@ def my_restaurants():
     }
     return response_body
 
+@api.route('/menu')
+def my_menu():
+    response_body = {
+        "items": [
+            {
+                "name": "Burrito",
+                "description": "Bean and Cheese",
+                "price": "$"
+            },
+            {
+                "name": "Taco",
+                "description": "Fish",
+                "price": "$"
+            },
+            {
+                "name": "Salad",
+                "description": "Mango Avocado",
+                "price": "$"
+            }
+        ]
+    }
+    return response_body
+
 if __name__ == "__main__":
     api.run(debug=True)

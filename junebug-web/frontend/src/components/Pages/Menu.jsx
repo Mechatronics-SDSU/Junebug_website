@@ -1,26 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "..";
-import { Modal } from  "..";
+import { Modal } from "..";
 
 // Do some fetch of restuarant items from backend
 
 function Menu() {
     const [showModal, setShowModal] = useState(false);
-    
+    const [items, setItem] = useState([]);
+
     const openModal = () => {
         setShowModal(true);
-        console.log("Modal Click");
     };
 
-    return(
+    useEffect(() => {
+        fetch("/menu").then(response =>
+            response.json().then(data => {
+                setItem(data.items);
+            })
+        );
+    }, [])
+
+    return (
         <div className="menu">
             <h1>Menu</h1>
             <div className="card-container">
-                <Card title="Burrito" body="Bean and Cheese" isModal={openModal}/>
-                <Card title="Salad" body="Mango Avocado" isModal={openModal}/>
-                <Card title="Taco" body="Mahi Mahi Fish Taco" isModal={openModal}/>
+                {items.map(item => {
+                    return (
+                        <Card title={item.name} body={item.description} isModal={openModal} />
+                    );
+                })}
             </div>
-            {showModal ? <Modal setShowModal={setShowModal}/> : null}
+            {showModal ? <Modal setShowModal={setShowModal} /> : null}
         </div>
     );
 }
