@@ -35,13 +35,16 @@ def flaskpage():
     fp = "Welcome!!!<br> /getrests<br> /menu"
     return fp
 
-@api.route('/getrestaurants/')
+@api.route('/restaurants/all')
 def get_restaurants():
     restaurants = []
     for i in rest.find({},{"_id" : 0, "name": 1, "restID": 1}):
         restaurants.append(i)
     return jsonify({'restaurants': restaurants})
 
+
+# TODO Change menu to new route with RestId param
+# @api.route('/menu/<RestId>)
 @api.route('/menu')
 def my_menu():
     response_body = {
