@@ -24,7 +24,7 @@ function App() {
           <Route path="/Junebug_website/login" element={<Login />} />
           <Route path="/Junebug_website/order" element={<Order />} />
           <Route path="/Junebug_website/cart" element={<Cart />} />
-          <Route path="/Junebug_website/menu" element={<Menu/> } />
+          <Route path="/Junebug_website/menu/:id" element={<Menu/> } />
         </Routes>
       </div>
       <Footer />

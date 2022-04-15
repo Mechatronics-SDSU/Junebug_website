@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Card } from "..";
 import { Modal } from "..";
 
@@ -7,6 +8,8 @@ import { Modal } from "..";
 function Menu() {
     const [showModal, setShowModal] = useState(false);
     const [items, setItem] = useState([]);
+    const { id } = useParams();
+
 
     const openModal = () => {
         setShowModal(true);
@@ -18,15 +21,22 @@ function Menu() {
                 setItem(data.items);
             })
         );
+        
     }, [])
+
+    
 
     return (
         <div className="menu">
-            <h1>Menu</h1>
+            <h1>{id} Menu</h1>
             <div className="card-container">
-                {items.map(item => {
+                {items.map((item) => {
                     return (
-                        <Card title={item.name} body={item.description} isModal={openModal} />
+                        <Card 
+                            title={item.name} 
+                            body={item.description} 
+                            isModal={openModal} 
+                        />
                     );
                 })}
             </div>

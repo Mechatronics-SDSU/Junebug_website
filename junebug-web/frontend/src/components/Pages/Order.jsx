@@ -3,15 +3,14 @@ import { Card } from ".."
 
 const menuRoute="/Junebug_website/menu";
 
-// Do some fetch of restuarant list from backend
-
+// TODO: Menu route parameter based on resturant id
 
 function Order() {
 
     const [restaurants, setRestaurants] = useState([]);
 
     useEffect(() => {
-        fetch("/resty/").then(response => 
+        fetch("/getrestaurants/").then(response => 
           response.json().then(data => {
                 setRestaurants(data.restaurants);
                 console.log(data.restaurants);
@@ -25,7 +24,11 @@ function Order() {
             <div className="card-container">
                 {restaurants.map(restaurant => {
                     return (
-                    <Card title={restaurant.name} body="This is a test" route={menuRoute}/>
+                    <Card 
+                        title={restaurant.name} 
+                        body="This is a test" 
+                        route={menuRoute+"/"+restaurant.restID}
+                    />
                     );
                 })}
             </div>

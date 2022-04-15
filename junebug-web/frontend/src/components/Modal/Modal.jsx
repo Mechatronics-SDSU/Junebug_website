@@ -18,8 +18,12 @@ function Modal({ setShowModal, body }) {
         <div className="modal-overlay"/>
         <div className="modal-container" ref={modalRef} onClick={closeModal}>
             <div className="modal">
-                <h1></h1>
-                <button onClick={() => setShowModal(false)}>X</button>
+                <h1>Example Item</h1>
+                <button 
+                    className="modal-exit" 
+                    onClick={() => setShowModal(false)}>X
+                </button>
+                <button className="modal-addCart">Add to Cart</button>
             </div>
         </div>
         </>,
