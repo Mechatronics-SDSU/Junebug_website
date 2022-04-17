@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { Card } from ".."
 
-const menuRoute="/Junebug_website/menu";
+const menuRoute = "/Junebug_website/menu";
 
 // TODO: Menu route parameter based on resturant id
 
@@ -10,12 +10,12 @@ function Order() {
     const [restaurants, setRestaurants] = useState([]);
 
     useEffect(() => {
-        fetch("/restaurants/all/").then(response => 
-          response.json().then(data => {
+        fetch("/restaurants/all/").then(response =>
+            response.json().then(data => {
                 setRestaurants(data.restaurants);
-          })
+            })
         );
-      }, [])
+    }, [])
 
     return (
         <div className="order">
@@ -23,11 +23,11 @@ function Order() {
             <div className="card-container">
                 {restaurants.map(restaurant => {
                     return (
-                    <Card 
-                        title={restaurant.name} 
-                        body="This is a test" 
-                        route={menuRoute+"/"+restaurant.restID}
-                    />
+                        <Card
+                            title={restaurant.name}
+                            body={restaurant.cuisine}
+                            route={menuRoute + "/" + restaurant.restID}
+                        />
                     );
                 })}
             </div>

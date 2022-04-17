@@ -8,6 +8,7 @@ import { Modal } from "..";
 function Menu() {
     const [showModal, setShowModal] = useState(false);
     const [items, setItem] = useState([]);
+    const [name, setName] = useState(1);
     const { id } = useParams();
 
 
@@ -19,17 +20,16 @@ function Menu() {
         fetch('/menu/'+id+'/').then(response =>
             response.json().then(data => {
                 setItem(data.items);
-                console.log(id);
+                setName(data.items[0].restName);
             })
         );
         
-    }, [])
-
-    
+        
+    }, [id])
 
     return (
         <div className="menu">
-            <h1>{id} Menu</h1>
+            <h1>{name} Menu</h1>
             <div className="card-container">
                 {items.map((item) => {
                     return (

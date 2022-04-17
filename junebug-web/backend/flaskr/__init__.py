@@ -40,43 +40,17 @@ def flaskpage():
 @api.route('/restaurants/all/', methods=['GET'])
 def get_restaurants():
     restaurants = []
-    for i in rest.find({},{"_id" : 0, "name": 1, "restID": 1}):
+    for i in rest.find({},{"_id" : 0, "name": 1, "restID": 1, "cuisine": 1}):
         restaurants.append(i)
     return jsonify({'restaurants': restaurants})
 
 
-# TODO Change menu to new route with RestId param
-# @api.route('/menu/<RestId>)
-
 @api.route('/menu/<int:id>/', methods=['GET'])
 def get_menu(id):
     items = []
-    for i in menu.find({"restID": id},{"_id" : 0, "name" : 1, "description" : 1, "price" : 1}):
+    for i in menu.find({"restID": id},{"_id" : 0, "name" : 1, "description" : 1, "price" : 1, "restName" : 1}):
         items.append(i)
     return jsonify({'items': items})
-
-@api.route('/menu/')
-def my_menu():
-    response_body = {
-        "items": [
-            {
-                "name": "Burrito",
-                "description": "Bean and Cheese",
-                "price": "$"
-            },
-            {
-                "name": "Taco",
-                "description": "Fish",
-                "price": "$"
-            },
-            {
-                "name": "Salad",
-                "description": "Mango Avocado",
-                "price": "$"
-            }
-        ]
-    }
-    return response_body
 
 if __name__ == "__main__":
     api.run(debug=True)
