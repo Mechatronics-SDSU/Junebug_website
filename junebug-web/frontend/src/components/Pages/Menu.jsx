@@ -16,9 +16,10 @@ function Menu() {
     };
 
     useEffect(() => {
-        fetch("/menu").then(response =>
+        fetch('/menu/'+id+'/').then(response =>
             response.json().then(data => {
                 setItem(data.items);
+                console.log(id);
             })
         );
         

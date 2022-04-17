@@ -74,3 +74,7 @@ https://www.youtube.com/watch?v=w1STSSumoVk
 https://www.youtube.com/watch?v=rOAsArrX8n4
 https://www.youtube.com/watch?v=57PpSudAzJM
 https://medium.com/codex/simple-registration-login-system-with-flask-mongodb-and-bootstrap-8872b16ef915
+
+To use "flask run" command to start server
+The following must be ran before:
+"export FLASK_APP=flaskr"

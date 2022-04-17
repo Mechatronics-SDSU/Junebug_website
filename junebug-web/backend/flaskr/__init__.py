@@ -13,7 +13,9 @@ jb = client.get_database('Junebug')
 #specify what collections
 user = jb.get_collection('Users')
 rest = jb.get_collection('Restaurants')
-robots = jb.get_collection('Robots')
+robot = jb.get_collection('Robots')
+menu = jb.get_collection('Menu')
+order = jb.get_collection('Orders')
 
 #-------------flask mixed with mongodb functions-------------------
 #
@@ -32,10 +34,10 @@ def adduser(firstName, lastName, email, password, phoneNum, address):
 
 @api.route('/')
 def flaskpage():
-    fp = "Welcome!!!<br> /getrests<br> /menu"
+    fp = "Welcome!!!<br> /getrests<br> /menu/"
     return fp
 
-@api.route('/restaurants/all')
+@api.route('/restaurants/all/', methods=['GET'])
 def get_restaurants():
     restaurants = []
     for i in rest.find({},{"_id" : 0, "name": 1, "restID": 1}):
@@ -45,7 +47,15 @@ def get_restaurants():
 
 # TODO Change menu to new route with RestId param
 # @api.route('/menu/<RestId>)
-@api.route('/menu')
+
+@api.route('/menu/<int:id>/', methods=['GET'])
+def get_menu(id):
+    items = []
+    for i in menu.find({"restID": id},{"_id" : 0, "name" : 1, "description" : 1, "price" : 1}):
+        items.append(i)
+    return jsonify({'items': items})
+
+@api.route('/menu/')
 def my_menu():
     response_body = {
         "items": [

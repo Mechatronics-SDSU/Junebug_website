@@ -10,10 +10,9 @@ function Order() {
     const [restaurants, setRestaurants] = useState([]);
 
     useEffect(() => {
-        fetch("/restaurants/all").then(response => 
+        fetch("/restaurants/all/").then(response => 
           response.json().then(data => {
                 setRestaurants(data.restaurants);
-                console.log(data.restaurants);
           })
         );
       }, [])
