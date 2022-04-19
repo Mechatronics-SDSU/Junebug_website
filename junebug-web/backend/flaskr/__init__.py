@@ -44,7 +44,6 @@ def get_restaurants():
         restaurants.append(i)
     return jsonify({'restaurants': restaurants})
 
-
 @api.route('/menu/<int:id>/', methods=['GET'])
 def get_menu(id):
     items = []
