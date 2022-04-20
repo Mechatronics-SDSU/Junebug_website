@@ -1,0 +1,21 @@
+.menu-card{
+    width: 200px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -15px;
+    background-color: lightcoral;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 1em;
+    padding: 1em;
+}
+
+.menu-card:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px 0px;
+}
+ 
+.menu-card-image{
+    overflow: hidden;
+    height: 200px;
+}

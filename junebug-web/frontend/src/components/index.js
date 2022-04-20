@@ -9,3 +9,4 @@ export { default as Cart } from "./Pages/Cart";
 export { default as Card } from "./Card/Card";
 export { default as Menu } from "./Pages/Menu";
 export { default as Modal } from "./Modal/Modal";
+export { default as MenuCard } from "./MenuCard/MenuCard";

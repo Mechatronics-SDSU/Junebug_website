@@ -1,7 +1,7 @@
 import { useEffect, useState} from "react";
 import { Card } from ".."
 
-const menuRoute = "/Junebug_website/menu";
+const menuRoute = "/Junebug_website/menu/";
 
 // TODO: Menu route parameter based on resturant id
 
@@ -24,9 +24,8 @@ function Order() {
                 {restaurants.map(restaurant => {
                     return (
                         <Card
-                            title={restaurant.name}
-                            body={restaurant.cuisine}
-                            route={menuRoute + "/" + restaurant.restID}
+                            object={restaurant}
+                            route={menuRoute + restaurant.restID}
                         />
                     );
                 })}

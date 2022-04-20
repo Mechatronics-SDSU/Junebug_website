@@ -1,24 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import "./card.css";
 
-
-
-function Card({title, body, route, isModal}) {
+function Card({object, route}) {
     
     const navigate = useNavigate();
     const handleClick = () => {
         if(route) navigate(route, {replace: true});
-        else isModal(); 
     }
     return (
         <div className="card" onClick={handleClick}>
             <div className="card-image">
             </div>
             <div className="card-title">
-                {title}
+                {object.name}
             </div>
             <div className="card-body">
-                <p>{body}</p>
+                <p>{object.description}</p>
             </div>
         </div>
     );
