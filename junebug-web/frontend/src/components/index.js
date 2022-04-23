@@ -4,7 +4,7 @@ export { default as Home } from "./Pages/Home";
 export { default as About } from "./Pages/About";
 export { default as Button } from "./Button/Button";
 export { default as Login } from "./Pages/Login";
-export { default as Order } from "./Pages/Order";
+export { default as Restaurants } from "./Pages/Restaurants";
 export { default as Cart } from "./Pages/Cart";
 export { default as Card } from "./Card/Card";
 export { default as Menu } from "./Pages/Menu";

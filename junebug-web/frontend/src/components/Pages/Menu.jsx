@@ -9,7 +9,7 @@ function Menu() {
     const [showModal, setShowModal] = useState(false);
     const [items, setItems] = useState([]);
     const [menuItemModal, setMenuItemModal] = useState(undefined);
-    const [name, setName] = useState(1);
+    const [name, setName] = useState();
     const { id } = useParams();
 
     const handleItemClick = (modalItem) => {
@@ -17,7 +17,7 @@ function Menu() {
         setShowModal(true);
     }
 
-    const closeModal = (e) => {
+    const closeModal = () => {
         setShowModal(false);
     };
 
@@ -37,6 +37,7 @@ function Menu() {
                 {items.map(item => {
                     return (
                         <MenuCard
+                            key={item.id}
                             object={item}
                             handleClick={handleItemClick}
                         />

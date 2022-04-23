@@ -1,8 +1,16 @@
 import "./modal.css";
 import ReactDom from "react-dom";
+import { useContext } from "react";
+import { addToCart, CartDispatchContext } from "../../contexts/CartContext";
 
 
 function Modal({handleClose, menuItem}) {
+
+    const dispatch = useContext(CartDispatchContext);
+
+    const handleAddToCart = () => {
+        addToCart(dispatch, menuItem);
+    }
 
     return ReactDom.createPortal(
         <>
@@ -14,7 +22,7 @@ function Modal({handleClose, menuItem}) {
                     className="modal-exit" 
                     onClick={handleClose}>X
                 </button>
-                <button className="modal-addCart">Add to Cart</button>
+                <button className="modal-addCart" onClick={handleAddToCart}>Add to Cart</button>
             </div>
         </div>
         </>,
