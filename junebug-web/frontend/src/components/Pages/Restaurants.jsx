@@ -1,5 +1,5 @@
 import { useEffect, useState} from "react";
-import { Card } from ".."
+import { RestCard } from ".."
 
 const menuRoute = "/Junebug_website/menu/";
 
@@ -21,7 +21,7 @@ function Restaurants() {
             <div className="card-container">
                 {restaurants.map(restaurant => {
                     return (
-                        <Card
+                        <RestCard
                             key={restaurant.id}
                             object={restaurant}
                             route={menuRoute + restaurant.restID}

@@ -9,10 +9,7 @@ function MenuCard({object, handleClick}) {
             <div className="menu-card-image">
             </div>
             <div className="menu-card-title">
-                {object.name}
-            </div>
-            <div className="menu-card-body">
-                <p>{object.description}</p>
+                {object.price} {object.name}
             </div>
         </div>
     );

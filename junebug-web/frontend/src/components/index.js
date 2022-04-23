@@ -6,7 +6,7 @@ export { default as Button } from "./Button/Button";
 export { default as Login } from "./Pages/Login";
 export { default as Restaurants } from "./Pages/Restaurants";
 export { default as Cart } from "./Pages/Cart";
-export { default as Card } from "./Card/Card";
+export { default as RestCard } from "./RestCard/RestCard";
 export { default as Menu } from "./Pages/Menu";
 export { default as Modal } from "./Modal/Modal";
 export { default as MenuCard } from "./MenuCard/MenuCard";

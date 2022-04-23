@@ -18,6 +18,8 @@ function Modal({handleClose, menuItem}) {
         <div className="modal-container">
             <div className="modal">
                 <h1>{menuItem.name}</h1>
+                <h2>{menuItem.price}</h2>
+                <p>{menuItem.description}</p>
                 <button 
                     className="modal-exit" 
                     onClick={handleClose}>X

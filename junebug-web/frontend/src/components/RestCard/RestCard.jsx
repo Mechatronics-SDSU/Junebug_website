@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import "./card.css";
+import "./restcard.css";
 
-function Card({object, route}) {
+function RestCard({object, route}) {
     
     const navigate = useNavigate();
     const handleClick = () => {
@@ -15,10 +15,10 @@ function Card({object, route}) {
                 {object.name}
             </div>
             <div className="card-body">
-                <p>{object.description}</p>
+                <p>{object.cuisine}</p>
             </div>
         </div>
     );
 }
 
-export default Card;
+export default RestCard;
