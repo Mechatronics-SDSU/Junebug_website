@@ -1,7 +1,5 @@
 import "./menucard.css";
 
-
-
 function MenuCard({object, handleClick}) {
     
     return (
