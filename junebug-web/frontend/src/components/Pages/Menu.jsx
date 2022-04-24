@@ -37,7 +37,7 @@ function Menu() {
                 {items.map(item => {
                     return (
                         <MenuCard
-                            key={item.id}
+                            key={item.name}
                             object={item}
                             handleClick={handleItemClick}
                         />

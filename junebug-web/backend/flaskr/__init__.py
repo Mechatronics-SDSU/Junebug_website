@@ -40,7 +40,7 @@ def flaskpage():
 @api.route('/restaurants/all/', methods=['GET'])
 def get_restaurants():
     restaurants = []
-    for i in rest.find({},{"_id" : 0, "name": 1, "restID": 1, "cuisine": 1}):
+    for i in rest.find({},{"_id" : 1, "name": 1, "restID": 1, "cuisine": 1}):
         restaurants.append(i)
     return jsonify({'restaurants': restaurants})
 

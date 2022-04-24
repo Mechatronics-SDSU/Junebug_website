@@ -15,11 +15,8 @@ const reducer = (state, action) => {
                 action.payload.item
             ]
         case "REMOVE_FROM_CART":
-            console.log(state);
-            console.log(action.payload);
-            return [
-                state.filter((item) => item !== action.payload)
-            ]
+            return state.filter((item) => item.name !== action.payload.item.name);
+            
         default:
             return state;
     }
