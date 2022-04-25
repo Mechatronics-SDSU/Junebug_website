@@ -3,17 +3,37 @@ import useSessionStorage from "../hooks/useSessionStorage";
 
 const initialState = [];
 
-
 export const CartDispatchContext = createContext();
 export const CartStateContext = createContext();
 
 const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_TO_CART":
+            const isOld = state.map((item) => item.name).includes(action.payload.item.name);
+            let cartItems = null;
+            if(isOld) {
+                const items = state.map((item) => {
+                    if(item.name === action.payload.item.name){
+                        return {
+                            ...item,
+                            quantity: item.quantity + 1
+                        };
+                    }
+                    return item;
+                });
+                cartItems = [...items];
+            }
+            else {
+                cartItems = [
+                    ...state, 
+                    action.payload.item
+                ];
+            }
             return [
                 ...state,
-                action.payload.item
-            ]
+                cartItems
+            ];
+
         case "REMOVE_FROM_CART":
             return state.filter((item) => item.name !== action.payload.item.name);
             
