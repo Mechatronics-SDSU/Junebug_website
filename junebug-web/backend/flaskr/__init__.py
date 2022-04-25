@@ -1,7 +1,10 @@
-from flask import Flask, redirect, render_template, url_for
+from passlib.hash import pbkdf2_sha256
+from flask import Flask, redirect, render_template, url_for, request
 from pymongo import MongoClient
 from flask.json import jsonify
 import json
+from flask_jwt_extended import JWTManager, create_access_token
+from flask_cors import CORS
 
 # create an instance of the flask class 
 api = Flask(__name__)
@@ -50,6 +53,44 @@ def get_menu(id):
     for i in menu.find({"restID": id},{"_id" : 0, "name" : 1, "description" : 1, "price" : 1, "restName" : 1}):
         items.append(i)
     return jsonify({'items': items})
+
+#for react flask and mongo
+@api.route('/login/', methods=['POST'])
+def login():
+    email = request.get_json()['email']
+    password = request.get_json()['password']
+    loginuser = user.find_one({'email': email})
+    result = ""
+    if loginuser:
+        if pbkdf2_sha256.verify(password, loginuser['password']):
+            result = jsonify({'token':"logged in"})
+        else:
+            result = jsonify({"error":"Incorrect password"})
+    else:
+        result = jsonify({"result":"not found"})
+
+    return result
+
+@api.route('/signup/', methods=['POST'])
+def register():
+    firstName = request.get_json()['firstName']
+    lastName = request.get_json()['lastName']
+    phoneNum = request.get_json()['phoneNum']
+    address = request.get_json()['address']
+    email = request.get_json()['email']
+    password = pbkdf2_sha256.hash(request.get_json()['password'])
+    user_id = user.insert({
+        'firstName': firstName,
+        'lastName': lastName,
+        'email': email,
+        'password': password,
+        'phoneNum': phoneNum,
+        'address' : address
+    })
+    new_user = user.find_one({'_id': user_id})
+    result = {'email': new_user['email'] + ' registered'}
+    
+    return jsonify({'result' : result})
 
 if __name__ == "__main__":
     api.run(debug=True)

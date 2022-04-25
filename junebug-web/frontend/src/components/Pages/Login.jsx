@@ -1,19 +1,65 @@
-function Login() {
+import { useState } from "react";
+
+async function loginUser(credentials) {
+    console.log(credentials);
+    return fetch('/login/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+    })
+    .then(data => data.json())
+}
+
+function Login({setToken}) {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const token = await loginUser({
+            email,
+            password
+        });
+        console.log(token);
+        setToken(token);
+    }
+
     return (
-        <div className="login">
-            <form>
-                <div className="login-container">
-                    <label>SDSU Email</label>
-                    <input type="email" name="email" required/>
+        <div className="container">
+            <div className="row">
+                <div className="col-md-6 mt-5 mx-auto">
+                    <form noValidate onSubmit={handleSubmit}>
+                        <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                        <div className="form-group">
+                            <label htmlFor="email">Email Address</label>
+                            <input type="email"
+                                className="form-control"
+                                name="email"
+                                placeholder="Enter Email"
+                                value={email}
+                                onChange={e => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password">Password </label>
+                            <input type="password"
+                                className="form-control"
+                                name="password"
+                                placeholder="Enter Password"
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                            />
+                        </div>
+
+                        <button type="submit" className="btn btn-lg btn-primary btn-block">
+                            Sign in
+                        </button>
+                    </form>
                 </div>
-                <div className="login-container">
-                    <label>Password</label>
-                    <input type="password" name="pass" required/>
-                </div>
-                <div className="login-btn-container">
-                    <input type="submit" value="Login"/>
-                </div>
-            </form>
+            </div>
         </div>
     );
 }
