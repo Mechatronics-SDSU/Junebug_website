@@ -28,11 +28,11 @@ function Login({setToken}) {
     }
 
     return (
-        <div className="container">
+        <div className="login">
             <div className="row">
                 <div className="col-md-6 mt-5 mx-auto">
                     <form noValidate onSubmit={handleSubmit}>
-                        <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                        <h1 className="">Please sign in</h1>
                         <div className="form-group">
                             <label htmlFor="email">Email Address</label>
                             <input type="email"
@@ -54,7 +54,7 @@ function Login({setToken}) {
                             />
                         </div>
 
-                        <button type="submit" className="btn btn-lg btn-primary btn-block">
+                        <button type="submit" className="">
                             Sign in
                         </button>
                     </form>
