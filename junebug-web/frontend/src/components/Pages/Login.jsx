@@ -28,38 +28,30 @@ function Login({setToken}) {
     }
 
     return (
-        <div className="login">
-            <div className="row">
-                <div className="col-md-6 mt-5 mx-auto">
-                    <form noValidate onSubmit={handleSubmit}>
-                        <h1 className="">Please sign in</h1>
-                        <div className="form-group">
-                            <label htmlFor="email">Email Address</label>
-                            <input type="email"
-                                className="form-control"
-                                name="email"
-                                placeholder="Enter Email"
-                                value={email}
-                                onChange={e => setEmail(e.target.value)}
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="password">Password </label>
-                            <input type="password"
-                                className="form-control"
-                                name="password"
-                                placeholder="Enter Password"
-                                value={password}
-                                onChange={e => setPassword(e.target.value)}
-                            />
-                        </div>
-
-                        <button type="submit" className="">
-                            Sign in
-                        </button>
-                    </form>
-                </div>
-            </div>
+        <div class= "login"> 
+        <center> <h1> Login </h1> </center>   
+        <form onSubmit={handleSubmit}>  
+            <div class= "login-container">   
+                <label>Email : </label>   
+                <input type="email" 
+                    placeholder="Enter Email" 
+                    name="email" 
+                    value={email} 
+                    onChange={e => setEmail(e.target.value)}
+                    required
+                />  
+                <label>Password : </label>   
+                <input type="password" 
+                    placeholder="Enter Password" 
+                    name="password"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    required 
+                />  
+                <button type="submit">Login</button>   
+                <input type="checkbox" checked="checked"/> Remember me     
+            </div>   
+        </form>
         </div>
     );
 }

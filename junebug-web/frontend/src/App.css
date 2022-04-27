@@ -55,7 +55,7 @@ body {
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  height: 70vh;
+  height: 40vh;
 }
 
 .login-container  {

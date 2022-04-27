@@ -63,11 +63,12 @@ def login():
     result = ""
     if loginuser:
         if pbkdf2_sha256.verify(password, loginuser['password']):
-            result = jsonify({'token':"logged in"})
+            result = {"success": "User Successfully Logged In"}
+            # result = jsonify({'token':"logged in"})# this can return username as token
         else:
-            result = jsonify({"error":"Incorrect password"})
+            result = {"error":"Incorrect password"}, 402
     else:
-        result = jsonify({"result":"not found"})
+        result = {"result":"account not found"}, 401
 
     return result
 

@@ -78,3 +78,4 @@ https://medium.com/codex/simple-registration-login-system-with-flask-mongodb-and
 To use "flask run" command to start server
 The following must be ran before:
 "export FLASK_APP=flaskr"
+
