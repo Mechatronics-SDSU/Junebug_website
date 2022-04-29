@@ -32,7 +32,7 @@ function App() {
             <Route path="/Junebug_website/restaurants" element={<Restaurants />} />
             <Route path="/Junebug_website/cart" element={<Cart />} />
             <Route path="/Junebug_website/menu/:id" element={<Menu />} />
-            <Route path="/Junebug_website/user" element={<User />} />
+            <Route path="/Junebug_website/user" element={<User token={token} />} />
           </Routes>
         </div>
         <Footer />
