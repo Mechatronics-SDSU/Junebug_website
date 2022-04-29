@@ -169,3 +169,14 @@ body {
   background: red;
   color: #242424;
 }
+
+.user {
+  justify-content: center;
+  height: 70vh;
+  background-color: white;
+  overflow: auto;
+}
+
+.user-container {
+  height: 70vh;
+}

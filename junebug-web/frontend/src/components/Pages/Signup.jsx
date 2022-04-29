@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 async function signupUser(credentials) {
     console.log(credentials);
@@ -12,7 +13,7 @@ async function signupUser(credentials) {
     .then(data => data.json())
 }
 
-function Signup({setToken}) {
+function Signup({setToken, removeToken}) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -20,6 +21,7 @@ function Signup({setToken}) {
     const [lastName, setlastName] = useState('');
     const [phoneNum, setphoneNum] = useState('');
 
+    let navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,6 +33,12 @@ function Signup({setToken}) {
             phoneNum
         });
         setToken(token);
+        if(token["result"]==="registered") {
+            navigate("/Junebug_website/",{replace: true});
+        }
+        else if(token["result"]==="not registered") {
+            removeToken();
+        }
     }
 
     return (

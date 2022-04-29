@@ -9,28 +9,30 @@ import {
   Restaurants,
   Cart,
   Menu,
-  Signup
+  Signup,
+  User
 } from "./components";
 import CartProvider from './contexts/CartContext';
 import useToken from './hooks/useToken';
 
 function App() {
   
-  const { token, setToken }  = useToken();
+  const { token, deleteToken, setToken }  = useToken();
 
   return (
     <CartProvider>
       <Router>
-        <Navbar token={token}/>
+        <Navbar token={token} deleteToken={deleteToken}/>
         <div className='wrapper'>
           <Routes>
             <Route path="/Junebug_website" element={<Home />} />
             <Route path="/Junebug_website/about" element={<About />} />
-            <Route path="/Junebug_website/login" element={<Login setToken={setToken} />} />
-            <Route path="/Junebug_website/signup" element={<Signup setToken={setToken} />}/>
+            <Route path="/Junebug_website/login" element={<Login setToken={setToken} removeToken={deleteToken}/>} />
+            <Route path="/Junebug_website/signup" element={<Signup setToken={setToken} removeToken={deleteToken}/>}/>
             <Route path="/Junebug_website/restaurants" element={<Restaurants />} />
             <Route path="/Junebug_website/cart" element={<Cart />} />
             <Route path="/Junebug_website/menu/:id" element={<Menu />} />
+            <Route path="/Junebug_website/user" element={<User />} />
           </Routes>
         </div>
         <Footer />

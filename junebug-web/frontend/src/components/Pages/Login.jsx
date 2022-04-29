@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 async function loginUser(credentials) {
-    console.log(credentials);
     return fetch('/login/', {
         method: 'POST',
         headers: {
@@ -12,10 +12,12 @@ async function loginUser(credentials) {
     .then(data => data.json())
 }
 
-function Login({setToken}) {
+function Login({setToken, removeToken}) {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    let navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,8 +25,13 @@ function Login({setToken}) {
             email,
             password
         });
-        console.log(token);
         setToken(token);
+        if(token["success"]) {
+            navigate("/Junebug_website/", {replace: true});
+        }
+        else if(token["error"]) {
+            removeToken();
+        }
     }
 
     return (
