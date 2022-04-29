@@ -12,3 +12,4 @@ export { default as Modal } from "./Modal/Modal";
 export { default as MenuCard } from "./MenuCard/MenuCard";
 export { default as Signup } from "./Pages/Signup";
 export { default as User } from "./Pages/User";
+export { default as Checkout } from "./Pages/Checkout";

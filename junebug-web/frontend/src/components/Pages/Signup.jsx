@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 async function signupUser(credentials) {
-    console.log(credentials);
     return fetch('/signup/', {
         method: 'POST',
         headers: {

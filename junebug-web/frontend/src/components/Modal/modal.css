@@ -4,7 +4,7 @@
     top: 7px;
     right: 7px;
     padding: 8px 11px;
-    background: crimson;
+    background: red;
     color: white;
     font-weight: bold;
     border: none;
@@ -12,19 +12,24 @@
     border-radius: 2px;
     cursor: pointer;
 }
+.modal-exit:hover{
+    transition: all 0.3s ease-out;
+    background: rgba(255, 0, 0, 0.6);
+    color: black;
+}
 
 .modal-addCart {
     position: relative;
     top: 15px;
     right: 15px;
     padding: 8px 11px;
-    background: red;
-    color: white;
+    background: transparent;
+    color: black;
     font-weight: bold;
     outline: none;
     cursor: pointer;
     border-radius: 20px;
-    border: 2px solid black;
+    border: 2px solid red;
     font-size: 18px;
     text-align: center;
 }
@@ -32,7 +37,7 @@
 .modal-addCart:hover{
     transition: all 0.3s ease-out;
     background: red;
-    color: #242424;
+    color: white;
 }
 
 .modal-container {

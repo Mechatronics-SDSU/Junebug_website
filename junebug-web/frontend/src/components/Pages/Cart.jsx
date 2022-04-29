@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { CartDispatchContext, CartStateContext, removeFromCart } from "../../contexts/CartContext";
+import Button from "../Button/Button";
 
 function Cart() {
 
@@ -38,13 +39,11 @@ function Cart() {
                     );
                 })}
             </ul>
-            <div checkout>
+            <div classname="cart-checkout">
                 <h2>
                     Order Total: ${orderTotal}
                 </h2>
-                <button className="checkout-btn">
-                    Checkout
-                </button>
+                <button className="cart-checkout-btn">Checkout</button>
             </div>
         </div>
     );

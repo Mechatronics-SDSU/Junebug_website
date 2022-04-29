@@ -10,7 +10,8 @@ import {
   Cart,
   Menu,
   Signup,
-  User
+  User,
+  Checkout
 } from "./components";
 import CartProvider from './contexts/CartContext';
 import useToken from './hooks/useToken';
@@ -33,6 +34,7 @@ function App() {
             <Route path="/Junebug_website/cart" element={<Cart />} />
             <Route path="/Junebug_website/menu/:id" element={<Menu />} />
             <Route path="/Junebug_website/user" element={<User />} />
+            <Route path="/Junebug_website/checkout" element={<Checkout />}/>
           </Routes>
         </div>
         <Footer />

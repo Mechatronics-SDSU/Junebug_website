@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import { Modal } from "..";
 import { MenuCard} from "..";
 
-// Do some fetch of restuarant items from backend
-
 function Menu() {
     const [showModal, setShowModal] = useState(false);
     const [items, setItems] = useState([]);
