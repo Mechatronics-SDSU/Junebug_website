@@ -7,6 +7,8 @@
     border: 2px solid white;
     font-size: 18px;
     text-align: center;
+    margin: 0.5rem;
+    width: max-content;
  } 
 
 .btn:hover {

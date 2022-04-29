@@ -1,27 +1,13 @@
 .navbar {
   padding: 0px 40px;
   align-items: center;
-  justify-content: left;
   position: sticky;
   display: flex;
-  height: 96px;
-  top: 0;
-  background-color: rgba(255, 0, 0, 0.5);
-  border-bottom-left-radius: 0.25em;
-  border-bottom-right-radius: 0.25em;
-  z-index: 100;
-}
-
-.navbar-container {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: calc(100%);
-}
-
-.nav-item {
-  display: inline;
-  padding: 0px 16px;
+  top: 0;
+  height: 100px;
+  background-color: rgba(255, 0, 0, 0.5);
+  z-index: 100;
 }
 
 .navbar-logo {
@@ -43,6 +29,4 @@
 
 .navbar-btn {
   display: flex;
-  justify-content: space-between;
-  width: 18%;
 }
