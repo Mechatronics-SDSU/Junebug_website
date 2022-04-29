@@ -14,7 +14,8 @@ function Navbar() {
         <div className="navbar-btn">
           <Button name="RESTAURANTS" route="/Junebug_website/restaurants" />
           <Button name="CART" route="/Junebug_website/cart" />
-          <Button name="SIGN IN" route="/Junebug_website/login" />
+          <Button name="Sign In" route="/Junebug_website/login" />
+          <Button name="Sign Up" route="/Junebug_website/signup" />
         </div>
       </div>
     </nav>

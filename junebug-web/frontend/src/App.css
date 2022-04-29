@@ -70,6 +70,28 @@ body {
   justify-content: center;
 }
 
+.signup {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  height: 40vh;
+}
+
+.signup-container  {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 5px;
+}
+
+.signup-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
 .restaurants {
   justify-content: center;
   height: 70vh;

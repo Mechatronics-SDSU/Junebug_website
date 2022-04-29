@@ -74,24 +74,20 @@ def login():
 
 @api.route('/signup/', methods=['POST'])
 def register():
-    firstName = request.get_json()['firstName']
-    lastName = request.get_json()['lastName']
-    phoneNum = request.get_json()['phoneNum']
-    address = request.get_json()['address']
-    email = request.get_json()['email']
-    password = pbkdf2_sha256.hash(request.get_json()['password'])
-    user_id = user.insert({
-        'firstName': firstName,
-        'lastName': lastName,
-        'email': email,
-        'password': password,
-        'phoneNum': phoneNum,
-        'address' : address
-    })
-    new_user = user.find_one({'_id': user_id})
-    result = {'email': new_user['email'] + ' registered'}
+    existing_user = user.find_one({'email' : request.get_json()['email']})
+    if existing_user is None :
+        email = request.get_json()['email']
+        password = pbkdf2_sha256.hash(request.get_json()['password'])
+        firstName = request.get_json()['firstName']
+        lastName = request.get_json()['lastName']
+        phoneNum = request.get_json()['phoneNum']
+        new_user = {"firstName": firstName, "lastName": lastName, "email": email, "password": password, "phoneNum": phoneNum }
+        user.insert_one(new_user)
+        result = {"result": "registered"}, 
+    else:
+        result = {"result": "not registered"}, 402
     
-    return jsonify({'result' : result})
+    return result
 
 if __name__ == "__main__":
     api.run(debug=True)
