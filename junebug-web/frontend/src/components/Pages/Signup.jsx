@@ -30,7 +30,6 @@ function Signup({setToken}) {
             lastName, 
             phoneNum
         });
-        console.log(token);
         setToken(token);
     }
 

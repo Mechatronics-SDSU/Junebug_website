@@ -2,6 +2,7 @@ a {
   text-decoration: none;
   color: white;
 }
+
 a:hover {
   text-decoration: none;
   color: #242424;
@@ -28,20 +29,20 @@ body {
   margin: 8px;
 }
 
-.wrapper{
+.wrapper {
   padding: 0px 40px;
   background-color: white;
   border-radius: 0.25em;
 }
 
-.home{
+.home {
   padding: 3em 5em 3em 5em;
 }
 
-  .home p{
-    margin: 0 0 2em 0;
-    text-align: center;
-  }
+.home p {
+  margin: 0 0 2em 0;
+  text-align: center;
+}
 
 .about {
   padding: 1em 6em;
@@ -58,7 +59,7 @@ body {
   height: 40vh;
 }
 
-.login-container  {
+.login-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -80,7 +81,7 @@ body {
   height: 40vh;
 }
 
-.signup-container  {
+.signup-container {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -129,4 +130,42 @@ body {
   height: 70vh;
   background-color: white;
   overflow: auto;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100%);
+}
+
+.item-total {
+  display: flex;
+  justify-content: end;
+}
+
+.item-total button {
+  margin: 1em;
+}
+
+.checkout-btn {
+  background: red;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 2px solid black;
+  font-size: 18px;
+  text-align: center;
+}
+
+.checkout-btn:hover {
+  transition: all 0.3s ease-out;
+  background: red;
+  color: #242424;
 }

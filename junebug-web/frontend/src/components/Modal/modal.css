@@ -18,13 +18,21 @@
     top: 15px;
     right: 15px;
     padding: 8px 11px;
-    background: blue;
+    background: red;
     color: white;
     font-weight: bold;
-    border: none;
     outline: none;
-    border-radius: 2px;
     cursor: pointer;
+    border-radius: 20px;
+    border: 2px solid black;
+    font-size: 18px;
+    text-align: center;
+}
+
+.modal-addCart:hover{
+    transition: all 0.3s ease-out;
+    background: red;
+    color: #242424;
 }
 
 .modal-container {

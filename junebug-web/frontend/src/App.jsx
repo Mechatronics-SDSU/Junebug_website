@@ -21,7 +21,7 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <Navbar />
+        <Navbar token={token}/>
         <div className='wrapper'>
           <Routes>
             <Route path="/Junebug_website" element={<Home />} />
