@@ -33,12 +33,8 @@ function App() {
             <Route path="/Junebug_website/restaurants" element={<Restaurants />} />
             <Route path="/Junebug_website/cart" element={<Cart />} />
             <Route path="/Junebug_website/menu/:id" element={<Menu />} />
-<<<<<<< HEAD
-            <Route path="/Junebug_website/user" element={<User />} />
             <Route path="/Junebug_website/checkout" element={<Checkout />}/>
-=======
             <Route path="/Junebug_website/user" element={<User token={token} />} />
->>>>>>> 22229fe26ebdf5dadf6e8bcb75ff442972235e11
           </Routes>
         </div>
         <Footer />
