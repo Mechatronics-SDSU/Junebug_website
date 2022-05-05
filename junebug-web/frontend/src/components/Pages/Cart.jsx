@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { CartDispatchContext, CartStateContext, removeFromCart } from "../../contexts/CartContext";
 
 function Cart() {
@@ -8,11 +9,17 @@ function Cart() {
     const cartItems = useContext(CartStateContext);
     const dispatch = useContext(CartDispatchContext);
 
+    const navigate = useNavigate();
+
     const handleRemove = (itemRemove) => {
         return removeFromCart(dispatch, itemRemove);
     }
 
     const handleTotal = (itemPrice) => {
+    }
+
+    const handleCheckout = () =>  {
+        navigate('/Junebug_website/checkout',{replace: true});
     }
 
     return (
@@ -42,7 +49,10 @@ function Cart() {
                 <h2>
                     Order Total: ${orderTotal}
                 </h2>
-                <button className="cart-checkout-btn">Checkout</button>
+                <button 
+                    className="cart-checkout-btn"
+                    onClick={handleCheckout}
+                >Checkout</button>
             </div>
         </div>
     );
