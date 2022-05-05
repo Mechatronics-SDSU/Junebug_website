@@ -88,7 +88,7 @@ def register():
 @api.route('/user/<int:userID>/', methods=['GET'])
 def userinfo(userID):
     items = []
-    for i in user.find({"restID": id},{"_id" : 0, "firstName": 1, "lastName": 1, "email": 1, "phoneNum": 1}):
+    for i in user.find({"userID": userID},{"_id" : 0, "firstName": 1, "lastName": 1, "email": 1, "phoneNum": 1}):
         items.append(i)
     return jsonify({'items': items})
 
