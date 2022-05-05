@@ -89,8 +89,12 @@ def register():
 def userinfo():
     userID = request.get_json()["userID"]
     items = []
+    #hists = []
     for i in user.find({"userID": userID},{"_id" : 0, "firstName": 1, "lastName": 1, "email": 1, "phoneNum": 1}):
         items.append(i)
+    #for i in order.find({"userID": userID}, {"_id" : 0, "destination": 1, "totalPrice": 1, "restName": "Rubios"}):
+    #    hists.append(i)
+    #return jsonify({"items": items}, {"hists": hists})
     return jsonify({"items": items})
 
 
@@ -105,3 +109,93 @@ if __name__ == "__main__":
     #     result = {"result":"account not found"}, 401
 
     # return result
+
+#     import { useState, useEffect } from "react";
+
+# function User({ token }) {                     //takes the token input
+#     const userID = token["userID"];  //gets userID from the token
+#     const [items, setItems] = useState([]); //declare state variable items 
+#     const [hists, setHists] = useState([]);
+#     console.log(userID);
+
+#     useEffect(() => {
+#         fetch('/user/', {
+#             method: 'POST',
+#             headers: {
+#                 'Content-Type': 'application/json'
+#             },
+#             body: JSON.stringify(userID)
+#         })
+#             .then(data => data.json()
+#                 .then(data => {
+#                     setItems(data.items);
+#    //                 setHists(data.hists);
+#                 }));
+#     }, [userID])
+#     console.log(hists);
+#     return (
+
+#         <div className="user-container">
+#             {items.map(item => {
+#                 return (
+#                     <div class="user-wrap">
+#                         <div class="right">
+#                             <div class="info">
+#                                 <h3>User Account</h3>
+#                                 <div class="info_data">
+#                                     <div class="data">
+#                                         <h4>Name</h4>
+#                                         <p>{item.firstName} {item.lastName}</p>
+#                                     </div>
+#                                     <div class="data">
+#                                         <h4>Email</h4>
+#                                         <p>{item.email}</p>
+#                                     </div>
+#                                 </div>
+#                             </div>
+#                             <div class="info">
+#                                 <div class="info_data">
+#                                     <div class="data">
+#                                         <  h4>Phone</h4>
+#                                         <p>{item.phoneNum}</p>
+#                                     </div>
+#                                     <div class="data">
+#                                         <h4>Type</h4>
+#                                         <p>Member</p>
+#                                     </div>
+#                                 </div>
+#                             </div>
+#                         </div>
+#                     </div>
+                    
+#                 );
+#             })};
+#             {/* {hists.map(hist => {
+#                 return (
+#                     <div class="projects">
+#                         <h3>Order History</h3>
+#                         <div class="info">
+#                             <div class="info_data">
+#                                 <div class="data">
+#                                     <  h4>Destination</h4>
+#                                     <p>{hist.destination}</p>
+#                                 </div>
+#                                 <div class="data">
+#                                     <h4>Price</h4>
+#                                     <p>{hist.totalPrice}</p>
+#                                 </div>
+#                                 <div class="data">
+#                                     <h4>Restaurant</h4>
+#                                     <p>{hist.restName}</p>
+#                                 </div>
+#                             </div>
+#                         </div>
+#                     </div>
+                            
+#                 );
+#             })}; */}
+#         </div>
+#     );
+# }
+
+# export default User;
