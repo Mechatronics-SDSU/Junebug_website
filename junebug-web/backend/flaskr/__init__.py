@@ -36,7 +36,7 @@ def adduser(firstName, lastName, email, password, phoneNum, address):
 
 @api.route('/')
 def flaskpage():
-    fp = "Welcome!!!<br> /getrests<br> /menu/"
+    fp = "Welcome!!!"
     return fp
 
 @api.route('/restaurants/all/', methods=['GET'])
@@ -97,18 +97,27 @@ def userinfo():
     #return jsonify({"items": items}, {"hists": hists})
     return jsonify({"items": items})
 
+@api.route('/cart/', methods=['POST'])
+def checkout(cartItems, userID):
+    firstname = request.get_json()["fname"]
+    lastname = request.get_json()["lname"]
+    email = request.get_json()["email"]
+    cardNum = request.get_json()["cardNumber"]
+    secNum = request.get_json()["secNum"]
+    dest = request.get_json()["destination"]
+    # firstname = user.find_one({"userID": userID}, {'_id':0, 'firstName': 1})
+    # lastname = user.find_one({"userID": userID}, {'_id':0, 'lastName': 1})
+    #items = cartItems
+    new_order = {"userID": userID, "firstName": firstname, "lastName": lastname, "email": email, 
+                 "cardNum": cardNum, "secNum": secNum, "destination": dest, 
+                } #add order quantity, price, items
+    order.insert_one(new_order)
+    return {"success": "order placed"}
 
 if __name__ == "__main__":
     api.run(debug=True)
 
-    #             result = {"success": "User Successfully Logged In"}
-    #         # result = jsonify({'token':"logged in"})# this can return username as token
-    #     else:
-    #         result = {"error":"Incorrect password"}, 402
-    # else:
-    #     result = {"result":"account not found"}, 401
-
-    # return result
+   
 
 #     import { useState, useEffect } from "react";
 
@@ -199,3 +208,7 @@ if __name__ == "__main__":
 # }
 
 # export default User;
+
+
+
+
