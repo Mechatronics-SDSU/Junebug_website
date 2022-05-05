@@ -1,13 +1,10 @@
 import { useState, useEffect } from "react";
 
 function User({ token }) {                     //takes the token input
-    const userID = token["userID"];         //gets userID from the token
-    const [items, setItems] = useState({
-        firstName: 'no info',
-        lastName: 'no info',
-        email: 'no info',
-        phoneNum: 'no info',
-    }); //declare state variable items 
+    const userID = token["userID"];  //gets userID from the token
+    const [items, setItems] = useState([]); //declare state variable items 
+
+    console.log(userID);
 
     useEffect(() => {
         fetch('/user/', {
@@ -17,10 +14,11 @@ function User({ token }) {                     //takes the token input
             },
             body: JSON.stringify(userID)
         })
-            .then(data => data.json()
-                .then(data => {
-                    setItems(data.items);
-                }));
+            .then(data =>
+                data.json()
+                    .then(data => {
+                        setItems(data.items);
+                    }));
     }, [userID])
 
     return (

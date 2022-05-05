@@ -63,7 +63,7 @@ def login():
     if loginuser:
         if pbkdf2_sha256.verify(password, loginuser['password']):
             userIDinfo = user.find_one({"email": email}, {'_id':0, 'userID': 1})
-            return {"success": userIDinfo}
+            return {"success": "success", "userID":userIDinfo}
             # result = jsonify({'token':"logged in"})# this can return username as token
     return {"error": "Incorrect Login"}, 402
 
@@ -85,12 +85,13 @@ def register():
     
     return result
 
-@api.route('/user/<int:userID>/', methods=['GET'])
-def userinfo(userID):
+@api.route('/user/', methods=['POST'])
+def userinfo():
+    userID = request.get_json()["userID"]
     items = []
     for i in user.find({"userID": userID},{"_id" : 0, "firstName": 1, "lastName": 1, "email": 1, "phoneNum": 1}):
         items.append(i)
-    return jsonify({'items': items})
+    return jsonify({"items": items})
 
 
 if __name__ == "__main__":
