@@ -4,8 +4,6 @@ function User({ token }) {                     //takes the token input
     const userID = token["userID"];  //gets userID from the token
     const [items, setItems] = useState([]); //declare state variable items 
 
-    console.log(userID);
-
     useEffect(() => {
         fetch('/user/', {
             method: 'POST',

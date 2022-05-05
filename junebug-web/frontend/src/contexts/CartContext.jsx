@@ -32,11 +32,11 @@ const reducer = (state, action) => {
             return [
                 ...state,
                 // cartItems
-                action.payload.item
+                action.payload
             ];
 
         case "REMOVE_FROM_CART":
-            return state.filter((item) => item.name !== action.payload.item.name);
+            return state.filter((product) => product.item.name !== action.payload.item.name);
             
         default:
             return state;
@@ -47,7 +47,8 @@ export const addToCart = (dispatch, cartItem) => {
     dispatch({
         type: 'ADD_TO_CART',
         payload: {
-            item: cartItem
+            item: cartItem.menuItem,
+            quantity: cartItem.itemQuantity
         }
     });
 };

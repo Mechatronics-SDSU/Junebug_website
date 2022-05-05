@@ -19,9 +19,7 @@
 }
 
 .modal-addCart {
-    position: relative;
-    top: 15px;
-    right: 15px;
+    margin: 20px;
     padding: 8px 11px;
     background: transparent;
     color: black;
@@ -48,6 +46,7 @@
     background-color: #FFF;
     padding: 50px;
     z-index: 1000;
+    text-align: center;
 }
 
 .modal-overlay {
