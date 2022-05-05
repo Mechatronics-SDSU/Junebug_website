@@ -36,7 +36,8 @@ const reducer = (state, action) => {
             ];
 
         case "REMOVE_FROM_CART":
-            return state.filter((product) => product.item.name !== action.payload.item.name);
+            console.log(action.payload.item);
+            return state.filter((product) => product.item.menuItem.itemID !== action.payload.item.itemID);
             
         default:
             return state;
@@ -47,8 +48,7 @@ export const addToCart = (dispatch, cartItem) => {
     dispatch({
         type: 'ADD_TO_CART',
         payload: {
-            item: cartItem.menuItem,
-            quantity: cartItem.itemQuantity
+            item: cartItem,
         }
     });
 };

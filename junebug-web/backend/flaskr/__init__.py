@@ -49,7 +49,7 @@ def get_restaurants():
 @api.route('/menu/<int:id>/', methods=['GET'])
 def get_menu(id):
     items = []
-    for i in menu.find({"restID": id},{"_id" : 0, "name" : 1, "description" : 1, "price" : 1, "restName" : 1}):
+    for i in menu.find({"restID": id},{"_id" : 0, "name" : 1, "description" : 1, "price" : 1, "restName" : 1, "itemID":1}):
         items.append(i)
     return jsonify({'items': items})
 

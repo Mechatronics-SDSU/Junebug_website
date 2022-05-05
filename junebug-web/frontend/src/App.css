@@ -132,6 +132,12 @@ body {
   overflow: auto;
 }
 
+.cart-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .cart-items {
   display: flex;
   flex-direction: column;
@@ -157,6 +163,12 @@ body {
 
 .item-total button {
   margin: 1em;
+}
+
+.item-quantity {
+  width:50px;
+  text-align: center;
+  height: 20px;
 }
 
 .cart-checkout-btn {

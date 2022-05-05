@@ -7,10 +7,10 @@ import { addToCart, CartDispatchContext } from "../../contexts/CartContext";
 function Modal({ handleClose, menuItem }) {
 
     const dispatch = useContext(CartDispatchContext);
-    const [quantity, setQuantity] = useState('1');
+    const [itemQuantity, setItemQuantity] = useState(1);
 
     const handleAddToCart = () => {
-        const item = { menuItem, itemQuantity: quantity }
+        const item = { menuItem, quantity: itemQuantity }
         addToCart(dispatch, item);
     }
 
@@ -31,12 +31,12 @@ function Modal({ handleClose, menuItem }) {
                             <h3>Quantity</h3>
                             <input type="number"
                                 name="quantity"
-                                value={quantity}
-                                onChange={e => setQuantity(e.target.value)}
+                                value={itemQuantity}
+                                onChange={e => setItemQuantity(e.target.value)}
                             />
                         </div>
-                        <button className="modal-addCart" onClick={handleAddToCart}>Add to Cart</button>
                     </form>
+                    <button className="modal-addCart" onClick={handleAddToCart}>Add to Cart</button>
                 </div>
             </div>
         </>,

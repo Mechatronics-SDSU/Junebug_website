@@ -18,38 +18,47 @@ function Cart() {
     const handleTotal = (itemPrice) => {
     }
 
-    const handleCheckout = () =>  {
-        navigate('/Junebug_website/checkout',{replace: true});
+    const handleCheckout = () => {
+        navigate('/Junebug_website/checkout', { replace: true });
     }
 
     return (
         <div className="cart">
             <h1>My Cart</h1>
+
             <ul className="cart-items">
+                <div className="cart-header">
+                    <h2>Item</h2>
+                    <h2>Price</h2>
+                    <h2>Quantity</h2>
+                    <h2>Total</h2>
+                </div>
                 {cartItems.map(product => {
-                    handleTotal(product.item.price);
+                    handleTotal(product.item.menuItem.price);
                     return (
-                        <li className="cart-item" key={product.item.name}>
-                            <div className="item-info">
-                                <p className="item-name">{product.item.name}</p>
-                                <p className="item-price">{product.item.price}</p>
-                            </div>
-                            <div className="item-total">
-                                <p className="amount">Item Total: {product.item.price}</p>
-                                <button
-                                    className="item-remove"
-                                    onClick={() => handleRemove(product.item)}
-                                >x</button>
-                            </div>
+                        <li className="cart-item" key={product.item.menuItem.itemID}>
+                            <button
+                                className="item-remove"
+                                onClick={() => handleRemove(product.item.menuItem)}
+                            >x</button>
+                            <h2 className="item-name">{product.item.menuItem.name}</h2>
+                            <p className="item-price">{product.item.menuItem.price}</p>
+                            <input
+                                className="item-quantity"
+                                type="number"
+                                name="quantity"
+                                value={product.item.quantity}
+                            />
+                            <p className="amount">{product.item.menuItem.price}</p>
                         </li>
                     );
                 })}
             </ul>
             <div className="cart-checkout">
                 <h2>
-                    Order Total: ${orderTotal}
+                    Cart Total: ${orderTotal}
                 </h2>
-                <button 
+                <button
                     className="cart-checkout-btn"
                     onClick={handleCheckout}
                 >Checkout</button>
