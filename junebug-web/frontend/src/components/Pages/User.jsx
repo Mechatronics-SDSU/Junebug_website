@@ -3,10 +3,7 @@ import { useState, useEffect } from "react";
 function User({ token }) {                     //takes the token input
     const userID = token["userID"];  //gets userID from the token
     const [items, setItems] = useState([]); //declare state variable items 
-<<<<<<< HEAD
-=======
     console.log(userID);
->>>>>>> 9f7ead2545af02b6b1637befbec3309224109c15
 
     useEffect(() => {
         fetch('/user/', {
