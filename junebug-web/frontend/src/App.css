@@ -180,6 +180,7 @@ body {
   border: 2px solid red;
   font-size: 18px;
   text-align: center;
+  margin: 20px;
 }
 
 .cart-checkout-btn:hover {

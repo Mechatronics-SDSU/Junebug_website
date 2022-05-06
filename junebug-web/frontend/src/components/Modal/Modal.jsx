@@ -10,7 +10,11 @@ function Modal({ handleClose, menuItem }) {
     const [itemQuantity, setItemQuantity] = useState(1);
 
     const handleAddToCart = () => {
-        const item = { menuItem, quantity: itemQuantity }
+        const item = { 
+            menuItem, 
+            quantity: itemQuantity, 
+            itemPrice: itemQuantity*parseFloat(menuItem.price.slice(1)) 
+        }
         addToCart(dispatch, item);
     }
 
@@ -33,6 +37,7 @@ function Modal({ handleClose, menuItem }) {
                                 name="quantity"
                                 value={itemQuantity}
                                 onChange={e => setItemQuantity(e.target.value)}
+                                min="0"
                             />
                         </div>
                     </form>
