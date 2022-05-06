@@ -1,7 +1,9 @@
 import { createContext, useEffect, useReducer } from "react";
 import useSessionStorage from "../hooks/useSessionStorage";
 
-const initialState = [];
+const initialState = [
+    
+];
 
 export const CartDispatchContext = createContext();
 export const CartStateContext = createContext();
@@ -39,8 +41,13 @@ const reducer = (state, action) => {
                     product.item.quantity = action.payload.item.quantity;
                     product.item.itemPrice = Number(product.item.quantity)*parseFloat(product.item.menuItem.price.slice(1));
                 }
+                return 1;
             });
             return [...state];
+
+        case "GET_TOTAL":
+            console.log(state);
+            return 1;
 
         default:
             return state;
@@ -86,6 +93,7 @@ function CartProvider({ children }) {
 
     useEffect(() => {
         setLocalCartItems(state);
+        dispatch({type: "GET_TOTAL"});
     }, [state, setLocalCartItems]);
 
     return (

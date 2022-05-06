@@ -1,7 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import "./restcard.css";
-import {createElement} from "react"
-import React, {useState} from 'react';
 
 function RestCard({object, route}) {
     const navigate = useNavigate();
@@ -9,7 +7,6 @@ function RestCard({object, route}) {
         if(route) navigate(route, {replace: true});
     }
 
-    console.log(object.imname);
     return (
         
         <div className="card" onClick={handleClick}>

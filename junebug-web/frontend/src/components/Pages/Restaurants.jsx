@@ -23,7 +23,7 @@ function Restaurants() {
                     return (
                         <RestCard
                             key={restaurant.id}
-                            object={restaurant} //use this pull image from front end
+                            object={restaurant}
                             route={menuRoute + restaurant.restID}
                         />
                     );
