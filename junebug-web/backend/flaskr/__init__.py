@@ -84,6 +84,25 @@ def register():
         result = {"result": "not registered"}, 402
     
     return result
+@api.route('/checkout/', methods=['POST'])
+def checkout():
+    cartItems = request.get_json()["cartItems"]
+    userID = request.get_json()["userID"]
+    firstname = request.get_json()["firstName"]
+    lastname = request.get_json()["lastName"]
+    email = request.get_json()["email"]
+    address = request.get_json()["address"]
+    city = request.get_json()["city"]
+    dest = request.get_json()["dest"]
+    cardNum = request.get_json()["cardNum"]
+    secNum = request.get_json()["Secnum"]
+    #items = cartItems
+    new_order = {"userID": userID["userID"], "cartItems": cartItems, "firstName": firstname, "lastName": lastname, "email": email, 
+                 "address": address, "city": city, "cardNum": cardNum, "secNum": secNum, "destination": dest 
+                } #add order quantity, price, items
+    order.insert_one(new_order)
+    return {"success": "order placed"}
+
 
 @api.route('/user/', methods=['POST'])
 def userinfo():
@@ -97,22 +116,7 @@ def userinfo():
     #return jsonify({"items": items}, {"hists": hists})
     return jsonify({"items": items})
 
-@api.route('/cart/', methods=['POST'])
-def checkout(cartItems, userID):
-    firstname = request.get_json()["fname"]
-    lastname = request.get_json()["lname"]
-    email = request.get_json()["email"]
-    cardNum = request.get_json()["cardNumber"]
-    secNum = request.get_json()["secNum"]
-    dest = request.get_json()["destination"]
-    # firstname = user.find_one({"userID": userID}, {'_id':0, 'firstName': 1})
-    # lastname = user.find_one({"userID": userID}, {'_id':0, 'lastName': 1})
-    #items = cartItems
-    new_order = {"userID": userID, "firstName": firstname, "lastName": lastname, "email": email, 
-                 "cardNum": cardNum, "secNum": secNum, "destination": dest, 
-                } #add order quantity, price, items
-    order.insert_one(new_order)
-    return {"success": "order placed"}
+
 
 if __name__ == "__main__":
     api.run(debug=True)
