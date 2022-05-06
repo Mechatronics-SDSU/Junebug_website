@@ -31,9 +31,9 @@ function App() {
             <Route path="/Junebug_website/login" element={<Login setToken={setToken} removeToken={deleteToken}/>} />
             <Route path="/Junebug_website/signup" element={<Signup setToken={setToken} removeToken={deleteToken}/>}/>
             <Route path="/Junebug_website/restaurants" element={<Restaurants />} />
-            <Route path="/Junebug_website/cart" element={<Cart />} />
+            <Route path="/Junebug_website/cart" element={<Cart token={token} />} />
             <Route path="/Junebug_website/menu/:id" element={<Menu />} />
-            <Route path="/Junebug_website/checkout" element={<Checkout />}/>
+            <Route path="/Junebug_website/checkout" element={<Checkout token={token} />}/>
             <Route path="/Junebug_website/user" element={<User token={token} />} />
           </Routes>
         </div>

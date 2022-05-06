@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartDispatchContext, CartStateContext, removeFromCart, updateCart } from "../../contexts/CartContext";
 
-function Cart() {
+function Cart({token}) {
 
     const [orderTotal, setOrderTotal] = useState(0.00);
 
@@ -24,7 +24,11 @@ function Cart() {
     }
 
     const handleCheckout = () => {
-        navigate('/Junebug_website/checkout', { replace: true });
+        if(token){
+            navigate('/Junebug_website/checkout', { replace: true });
+        } else{
+            navigate('/Junebug_website/login', {replace: true});
+        }
     }
 
     return (
