@@ -42,14 +42,14 @@ def flaskpage():
 @api.route('/restaurants/all/', methods=['GET'])
 def get_restaurants():
     restaurants = []
-    for i in rest.find({},{"_id" : 1, "name": 1, "restID": 1, "cuisine": 1}):
+    for i in rest.find({},{"_id" : 1, "name": 1, "restID": 1, "cuisine": 1, "imname": 1, "imurl": 1}):
         restaurants.append(i)
     return jsonify({'restaurants': restaurants})
 
 @api.route('/menu/<int:id>/', methods=['GET'])
 def get_menu(id):
     items = []
-    for i in menu.find({"restID": id},{"_id" : 0, "name" : 1, "description" : 1, "price" : 1, "restName" : 1, "itemID":1}):
+    for i in menu.find({"restID": id},{"_id" : 0, "name" : 1, "description" : 1, "price" : 1, "restName" : 1, "itemID":1, "fname":1}):
         items.append(i)
     return jsonify({'items': items})
 

@@ -27,7 +27,7 @@ function Menu() {
             })
         );
     }, [id])
-
+    
     return (
         <div className="menu">
             <h1>{name} Menu</h1>
