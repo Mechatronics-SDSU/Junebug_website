@@ -12,7 +12,7 @@ function Modal({ handleClose, menuItem }) {
     const handleAddToCart = () => {
         const item = { 
             menuItem, 
-            quantity: itemQuantity, 
+            quantity: Number(itemQuantity), 
             itemPrice: itemQuantity*parseFloat(menuItem.price.slice(1)) 
         }
         addToCart(dispatch, item);

@@ -32,7 +32,7 @@ function Checkout({ token }){
     useEffect(() => {
         setSubTotal(cartItems.reduce((preValue, curValue)=> preValue + Number(curValue.item.quantity)*Number(curValue.item.itemPrice), 0).toFixed(2));
         setTax((subTotal*0.0775).toFixed(2));
-        setTotal(Number(subTotal)+Number(tax));
+        setTotal((Number(subTotal)+Number(tax)).toFixed(2));
     },[cartItems, subTotal, tax])
 
 

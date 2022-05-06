@@ -19,44 +19,60 @@ function User({ token }) {                     //takes the token input
                     setOrders(data.orders);
                 }));
     }, [userID])
-    
-    return (
 
-        <div className="user-container">
-            {bio.map(item => {
-                return (
-                    <div class="user-wrap">
-                        <div class="right">
+    return (
+        <>
+            <div className="user-container">
+                {bio.map(item => {
+                    return (
+                        <div class="user-wrap">
                             <div class="info">
-                                <h3>User Account</h3>
-                                <div class="info_data">
-                                    <div class="data">
-                                        <h4>Name</h4>
-                                        <p>{item.firstName} {item.lastName}</p>
-                                    </div>
-                                    <div class="data">
-                                        <h4>Email</h4>
-                                        <p>{item.email}</p>
-                                    </div>
+                                <h1>User Account</h1>
+                                <div class="data">
+                                    <h2>Name</h2>
+                                    <p>{item.firstName} {item.lastName}</p>
+                                </div>
+                                <div class="data">
+                                    <h2>Email</h2>
+                                    <p>{item.email}</p>
                                 </div>
                             </div>
                             <div class="info">
-                                <div class="info_data">
-                                    <div class="data">
-                                        <  h4>Phone</h4>
-                                        <p>{item.phoneNum}</p>
-                                    </div>
-                                    <div class="data">
-                                        <h4>Type</h4>
-                                        <p>Member</p>
-                                    </div>
+                                <div class="data">
+                                    <h2>Phone</h2>
+                                    <p>{item.phoneNum}</p>
+                                </div>
+                                <div class="data">
+                                    <h2>Type</h2>
+                                    <p>Member</p>
                                 </div>
                             </div>
                         </div>
-                    </div> 
-                );
-            })};
-        </div>
+                    )
+                })}
+                <div className="order-history-container">
+                    <h1>Order History</h1>
+                    {orders.map(order => {
+                        return (
+                            <div className="order-container">
+                                <h3>Order Total: ${order.total}</h3>
+                                {order.cartItems.map(product => {
+                                    return (
+                                        <div className="order-item">
+                                            <p>{product.item.menuItem.restName}</p>
+                                            <p>{product.item.menuItem.name}</p>
+                                            <p>{product.item.quantity}</p>
+                                        </div>
+                                    )
+                                })}
+
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+
+        </>
     );
 }
 
