@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartDispatchContext, CartStateContext, removeFromCart, updateCart } from "../../contexts/CartContext";
 
@@ -10,13 +10,10 @@ function Cart({token}) {
     const dispatch = useContext(CartDispatchContext);
     const navigate = useNavigate();
 
-    const handleRemove = (itemRemove) => {
-        return removeFromCart(dispatch, itemRemove);
+    const handleRemove = (itemRemoveID) => {
+        return removeFromCart(dispatch, itemRemoveID);
     }
 
-    const handleTotal = (itemPrice) => {
-
-    }
 
     const handleUpdate = (id, quantity) => {
         const itemUpdate = {id, quantity};
@@ -30,6 +27,10 @@ function Cart({token}) {
             navigate('/Junebug_website/login', {replace: true});
         }
     }
+
+    useEffect(() => {
+        setOrderTotal(cartItems.reduce((preValue, curValue)=> preValue + Number(curValue.item.quantity)*Number(curValue.item.itemPrice), 0).toFixed(2));
+    },[cartItems])
 
     return (
         <div className="cart">
@@ -47,7 +48,7 @@ function Cart({token}) {
                         <li className="cart-item" key={product.item.menuItem.itemID}>
                             <button
                                 className="item-remove"
-                                onClick={() => handleRemove(product.item.menuItem)}
+                                onClick={() => handleRemove(product.item.menuItem.itemID)}
                             >x</button>
                             <h2 className="item-name">{product.item.menuItem.name}</h2>
                             <p className="item-price">{product.item.menuItem.price}</p>
@@ -66,7 +67,7 @@ function Cart({token}) {
             </ul>
             <div className="cart-checkout">
                 <h2>
-                    Cart Total: ${handleTotal}
+                    Cart Total: ${orderTotal}
                 </h2>
                 <button
                     className="cart-checkout-btn"

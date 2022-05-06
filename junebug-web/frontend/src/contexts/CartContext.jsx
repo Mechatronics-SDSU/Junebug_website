@@ -1,7 +1,9 @@
 import { createContext, useEffect, useReducer } from "react";
 import useSessionStorage from "../hooks/useSessionStorage";
 
-const initialState = [];
+const initialState = [
+    
+];
 
 export const CartDispatchContext = createContext();
 export const CartStateContext = createContext();
@@ -32,15 +34,15 @@ const reducer = (state, action) => {
 
 
         case "REMOVE_FROM_CART":
-            return state.filter((product) => product.item.menuItem.itemID !== action.payload.item.itemID);
+            return state.filter((product) => product.item.menuItem.itemID !== action.payload.itemID);
 
         case "UPDATE_CART":
             state.map((product) => {
-                if (product.item.menuItem.itemID === action.payload.item.id){
-                    product.item.quantity = action.payload.item.quantity;
+                if (product.item.menuItem.itemID === action.payload.id){
+                    product.item.quantity = action.payload.quantity;
                     product.item.itemPrice = Number(product.item.quantity)*parseFloat(product.item.menuItem.price.slice(1));
                 }
-                
+                return product;
             });
             return [...state];
 
@@ -62,11 +64,11 @@ export const addToCart = (dispatch, cartItem) => {
     });
 };
 
-export const removeFromCart = (dispatch, cartItem) => {
+export const removeFromCart = (dispatch, cartItemID) => {
     dispatch({
         type: 'REMOVE_FROM_CART',
         payload: {
-            item: cartItem
+            itemID: cartItemID
         }
     });
 }
@@ -75,7 +77,8 @@ export const updateCart = (dispatch, updateItem) => {
     dispatch({
         type: 'UPDATE_CART',
         payload: {
-            item: updateItem
+            id: updateItem.id,
+            quantity: updateItem.quantity
         }
     });
 }

@@ -1,6 +1,6 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartDispatchContext, CartStateContext, removeFromCart, updateCart } from "../../contexts/CartContext";
+import { CartStateContext} from "../../contexts/CartContext";
 
 async function CheckOut(credentials) {
     return fetch('/checkout/', {
@@ -16,7 +16,6 @@ async function CheckOut(credentials) {
 function Checkout({ token }){
     const cartItems = useContext(CartStateContext);
     const userID = token["userID"];
-    console.log(userID);
     const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
     const [email, setEmail] = useState('');
@@ -25,13 +24,23 @@ function Checkout({ token }){
     const [dest, setDest] = useState('Storm Hall');
     const [cardNum, setCardnum] = useState('');
     const [Secnum, setSecnum] = useState('');
+    const [subTotal, setSubTotal] = useState(0.00);
+    const [tax, setTax] = useState(0.00);
+    const [total, setTotal] = useState(0.00);
     let navigate = useNavigate();
+
+    useEffect(() => {
+        setSubTotal(cartItems.reduce((preValue, curValue)=> preValue + Number(curValue.item.quantity)*Number(curValue.item.itemPrice), 0).toFixed(2));
+        setTax((subTotal*0.0775).toFixed(2));
+        setTotal(Number(subTotal)+Number(tax));
+    },[cartItems, subTotal, tax])
 
 
     const handleCheckout = async (e) => {
         e.preventDefault();
         const orderresult = await CheckOut({
             cartItems,
+            total,
             userID,
             firstName,
             lastName,
@@ -124,7 +133,13 @@ function Checkout({ token }){
                         onChange={e => setSecnum(e.target.value)}
                     />
                     <br></br>
-                    <button className="cart-checkout-btn" onClick={handleCheckout}>Checkout</button>
+                    <div className="checkout-container">
+                        <h3>Sub Total: ${subTotal}</h3>
+                        <h3>Tax Cost: ${tax}</h3>
+                        <h3>Total: ${total}</h3>
+                        <button className="cart-checkout-btn" onClick={handleCheckout}>Checkout</button>
+                    </div>
+                    
                 </div>
             </div>   
         </div>

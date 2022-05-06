@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 
 function User({ token }) {                     //takes the token input
     const userID = token["userID"];  //gets userID from the token
-    const [items, setItems] = useState([]); //declare state variable items 
+    const [bio, setBio] = useState([]); //declare state variable items 
+    const [orders, setOrders] = useState([]);
 
     useEffect(() => {
         fetch('/user/', {
@@ -14,13 +15,15 @@ function User({ token }) {                     //takes the token input
         })
             .then(data => data.json()
                 .then(data => {
-                    setItems(data.items);
+                    setBio(data.bio);
+                    setOrders(data.orders);
                 }));
     }, [userID])
+    
     return (
 
         <div className="user-container">
-            {items.map(item => {
+            {bio.map(item => {
                 return (
                     <div class="user-wrap">
                         <div class="right">
