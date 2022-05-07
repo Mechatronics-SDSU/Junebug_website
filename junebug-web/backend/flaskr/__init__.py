@@ -94,7 +94,8 @@ def checkout():
     address = request.get_json()["address"]
     city = request.get_json()["city"]
     dest = request.get_json()["dest"]
-    cardNum = request.get_json()["cardNum"]
+    cardNum = pbkdf2_sha256.hash(request.get_json()["cardNum"])
+    expiry = request.get_json()["expiry"]
     secNum = request.get_json()["Secnum"]
     total = request.get_json()["total"]
     new_order = {"userID": userID["userID"], "cartItems": cartItems, "firstName": firstname, "lastName": lastname, "email": email, 
