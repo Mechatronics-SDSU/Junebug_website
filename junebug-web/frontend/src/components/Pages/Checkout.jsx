@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartStateContext } from "../../contexts/CartContext";
-import validator from 'validator'
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css'
 
@@ -63,19 +62,6 @@ function Checkout({ token }) {
 
         }
     }
-
-
-    const [errorMessage, setErrorMessage] = useState('')
-    const validateCreditCard = (value) => {
-
-        if (validator.isCreditCard(value)) {
-            setErrorMessage('Valid Card Number')
-        } else {
-            setErrorMessage('Enter Valid Card Number!')
-        }
-    }
-
-
 
     return (
         <div className="Checkout">
@@ -160,9 +146,6 @@ function Checkout({ token }) {
                         onFocus={e => setFocus(e.target.value)}
                         required
                     />
-                    <span style={{ fontWeight: 'bold', color: 'red', }}>
-                        {errorMessage}
-                    </span>
                     <br></br>
                     <label for="secNum">Enter Security Number: </label>
                     <input type="tel"
