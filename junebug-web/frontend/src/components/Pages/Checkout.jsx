@@ -156,9 +156,6 @@ function Checkout({ token }) {
                     onFocus={e => setFocus(e.target.value)}
                     required
                 />
-                <span style={{ fontWeight: 'bold', color: 'red', }}>
-                    {errorMessage}
-                </span>
                 <br></br>
                 <label for="secNum">Enter Security Number: </label>
                 <input type="tel"
@@ -187,6 +184,9 @@ function Checkout({ token }) {
                     <h3>Total: ${total}</h3>
                     <button className="cart-checkout-btn" onClick={handleCheckout}>Checkout</button>
                 </div>
+
+
+
             </div>
         </div>
     );

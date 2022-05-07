@@ -94,7 +94,7 @@ def checkout():
     total = request.get_json()["total"]
     orderID = order.count_documents({}) + 1
     new_order = {"userID": userID["userID"], "cartItems": cartItems, "firstName": firstname, "lastName": lastname, "email": email, 
-                 "address": address, "city": city, "cardNum": cardNum, "secNum": secNum, "destination": dest, "total": total, "orderID":orderID 
+                 "address": address, "city": city, "cardNum": cardNum, "secNum": secNum, "expiry": expiry, "destination": dest, "total": total 
                 } #add order quantity, price, items
     order.insert_one(new_order)
     return {"success": "order placed"}
