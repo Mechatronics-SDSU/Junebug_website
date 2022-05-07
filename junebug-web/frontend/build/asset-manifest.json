@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Junebug_website/static/css/main.05e322db.css",
-    "main.js": "/Junebug_website/static/js/main.f0778bec.js",
+    "main.css": "/Junebug_website/static/css/main.82d6a7a2.css",
+    "main.js": "/Junebug_website/static/js/main.5920164b.js",
     "static/js/787.8462a9d3.chunk.js": "/Junebug_website/static/js/787.8462a9d3.chunk.js",
     "static/media/mech_logo.svg": "/Junebug_website/static/media/mech_logo.7ca08b57739982b7238762653ff8a782.svg",
     "static/media/sdsumap.jpg": "/Junebug_website/static/media/sdsumap.0cb7b113c824252e0b67.jpg",
     "static/media/Dining_OpenLocations_Final.jpg": "/Junebug_website/static/media/Dining_OpenLocations_Final.4d47d3417364bd859224.jpg",
     "static/media/genericdeliveryrobot.jpg": "/Junebug_website/static/media/genericdeliveryrobot.6c19bbd652cd9640f9c8.jpg",
     "index.html": "/Junebug_website/index.html",
-    "main.05e322db.css.map": "/Junebug_website/static/css/main.05e322db.css.map",
-    "main.f0778bec.js.map": "/Junebug_website/static/js/main.f0778bec.js.map",
+    "main.82d6a7a2.css.map": "/Junebug_website/static/css/main.82d6a7a2.css.map",
+    "main.5920164b.js.map": "/Junebug_website/static/js/main.5920164b.js.map",
     "787.8462a9d3.chunk.js.map": "/Junebug_website/static/js/787.8462a9d3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.05e322db.css",
-    "static/js/main.f0778bec.js"
+    "static/css/main.82d6a7a2.css",
+    "static/js/main.5920164b.js"
   ]
 }
