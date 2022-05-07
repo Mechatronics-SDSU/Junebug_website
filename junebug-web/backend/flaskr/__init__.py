@@ -28,12 +28,6 @@ def adduser(firstName, lastName, email, password, phoneNum, address):
     user.insert_one({"firstName": firstName.lower(), "lastName": lastName.lower(), "email": email.lower(), "password": password, "phoneNum": phoneNum.lower(), "address": address.lower()})
     return redirect(url_for('/'))
 
-# # adding user to the database
-# @app.route('/addname/<name>/')
-# def addname(user):
-#     user.insert_one({"name": user.lower()})
-#     return redirect(url_for('getnames'))
-
 @api.route('/')
 def flaskpage():
     fp = "Welcome!!!"
@@ -98,6 +92,7 @@ def checkout():
     expiry = request.get_json()["expiry"]
     secNum = request.get_json()["Secnum"]
     total = request.get_json()["total"]
+    orderID = order.count_documents({}) + 1
     new_order = {"userID": userID["userID"], "cartItems": cartItems, "firstName": firstname, "lastName": lastname, "email": email, 
                  "address": address, "city": city, "cardNum": cardNum, "secNum": secNum, "expiry": expiry, "destination": dest, "total": total 
                 } #add order quantity, price, items

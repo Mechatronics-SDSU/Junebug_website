@@ -25,24 +25,24 @@ function User({ token }) {                     //takes the token input
             <div className="user-container">
                 {bio.map(item => {
                     return (
-                        <div class="user-wrap">
-                            <div class="info">
+                        <div className="user-wrap">
+                            <div className="info">
                                 <h1>User Account</h1>
-                                <div class="data">
+                                <div className="data">
                                     <h2>Name</h2>
                                     <p>{item.firstName} {item.lastName}</p>
                                 </div>
-                                <div class="data">
+                                <div className="data">
                                     <h2>Email</h2>
                                     <p>{item.email}</p>
                                 </div>
                             </div>
-                            <div class="info">
-                                <div class="data">
+                            <div className="info">
+                                <div className="data">
                                     <h2>Phone</h2>
                                     <p>{item.phoneNum}</p>
                                 </div>
-                                <div class="data">
+                                <div className="data">
                                     <h2>Type</h2>
                                     <p>Member</p>
                                 </div>

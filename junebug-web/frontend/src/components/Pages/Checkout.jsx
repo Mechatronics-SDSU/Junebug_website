@@ -1,6 +1,10 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartStateContext } from "../../contexts/CartContext";
+<<<<<<< HEAD
+=======
+import validator from 'validator';
+>>>>>>> 3a6c48cada3ea29b96237b7a79653266c9d1315f
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css'
 
@@ -63,6 +67,19 @@ function Checkout({ token }) {
         }
     }
 
+<<<<<<< HEAD
+=======
+    const [errorMessage, setErrorMessage] = useState('')
+    const validateCreditCard = (value) => {
+
+        if (validator.isCreditCard(value)) {
+            setErrorMessage('Valid Card Number')
+        } else {
+            setErrorMessage('Enter Valid Card Number!')
+        }
+    }
+
+>>>>>>> 3a6c48cada3ea29b96237b7a79653266c9d1315f
     return (
         <div className="Checkout">
             <h1>Checkout</h1>

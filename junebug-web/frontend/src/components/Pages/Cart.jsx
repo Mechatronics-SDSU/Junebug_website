@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartDispatchContext, CartStateContext, removeFromCart, updateCart } from "../../contexts/CartContext";
 
-function Cart({token}) {
+function Cart({ token }) {
 
-    const [orderTotal, setOrderTotal] = useState(0.00);
+    const [orderTotal, setOrderTotal] = useState(0);
 
     const cartItems = useContext(CartStateContext);
     const dispatch = useContext(CartDispatchContext);
@@ -16,51 +16,52 @@ function Cart({token}) {
 
 
     const handleUpdate = (id, quantity) => {
-        const itemUpdate = {id, quantity};
+        const itemUpdate = { id, quantity };
         return updateCart(dispatch, itemUpdate);
     }
 
     const handleCheckout = () => {
-        if(token){
+        if (token) {
             navigate('/Junebug_website/checkout', { replace: true });
-        } else{
-            navigate('/Junebug_website/login', {replace: true});
+        } else {
+            navigate('/Junebug_website/login', { replace: true });
         }
     }
 
     useEffect(() => {
-        setOrderTotal(cartItems.reduce((preValue, curValue)=> preValue + Number(curValue.item.quantity)*Number(curValue.item.itemPrice), 0).toFixed(2));
-    },[cartItems])
+        setOrderTotal(cartItems.reduce((preValue, curValue) => preValue + Number(curValue.item.itemPrice), 0).toFixed(2));
+    }, [cartItems])
 
     return (
         <div className="cart">
             <h1>My Cart</h1>
 
             <ul className="cart-items">
-                <div className="cart-header">
-                    <h2>Item</h2>
-                    <h2>Price</h2>
-                    <h2>Quantity</h2>
-                    <h2>Total</h2>
-                </div>
                 {cartItems.map(product => {
+                    console.log(product.item);
                     return (
                         <li className="cart-item" key={product.item.menuItem.itemID}>
                             <button
                                 className="item-remove"
                                 onClick={() => handleRemove(product.item.menuItem.itemID)}
                             >x</button>
-                            <h2 className="item-name">{product.item.menuItem.name}</h2>
-                            <p className="item-price">{product.item.menuItem.price}</p>
-                            <input
-                                className="item-quantity"
-                                type="number"
-                                name="quantity"
-                                value={product.item.quantity}
-                                onChange={(e) => handleUpdate( product.item.menuItem.itemID, e.target.value)}
-                                min="0"
-                            />
-                            <p className="amount">${product.item.itemPrice.toFixed(2)}</p>
+                            <img className="cart-image" src={product.item.menuItem.fname} alt={`${product.item.menuItem.name}`} />
+                            <div className="cart-item-about">
+                                <h1 className="item-name">{product.item.menuItem.name}</h1>
+                                <h3 className="item-restName">{product.item.menuItem.restName}</h3>
+                            </div>
+                            <div className="item-counter">
+                                <input
+                                    className="item-quantity"
+                                    type="number"
+                                    name="quantity"
+                                    value={product.item.quantity}
+                                    onChange={(e) => handleUpdate(product.item.menuItem.itemID, e.target.value)}
+                                    min="0"
+                                />
+                            </div>
+
+                            <div className="item-amount">${product.item.itemPrice.toFixed(2)}</div>
                         </li>
                     );
                 })}
@@ -73,7 +74,7 @@ function Cart({token}) {
                     className="cart-checkout-btn"
                     onClick={handleCheckout}
                 >Checkout</button>
-            </div> 
+            </div>
         </div>
     );
 }

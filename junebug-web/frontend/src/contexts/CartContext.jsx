@@ -11,7 +11,6 @@ export const CartStateContext = createContext();
 const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_TO_CART":
-            console.log(state);
             const isOld = state.map((product) => product.item.menuItem.itemID).includes(action.payload.item.menuItem.itemID);
             let cartItems = null;
             if (isOld) {
@@ -45,11 +44,7 @@ const reducer = (state, action) => {
                 return product;
             });
             return [...state];
-
-        // case "GET_TOTAL":
-        //     console.log(state);
-        //     return 1;
-
+            
         default:
             return state;
     }
