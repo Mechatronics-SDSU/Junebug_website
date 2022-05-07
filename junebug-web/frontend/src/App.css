@@ -59,7 +59,6 @@ body {
   padding: 1em 6em;
 }
 
-
 .login {
   background-color: white;
   display: flex;
@@ -146,6 +145,7 @@ body {
 
 .cart-items {
   display: flex;
+  flex-direction: column;
 }
 
 .cart-item {
@@ -153,10 +153,9 @@ body {
   width: 90%;
   height: 30%;
   border-radius: 5px; 
-  margin:auto;
   justify-content: space-between;
   align-items: center;
-
+  padding: 10px;
 }
 
 .cart-item:hover {
@@ -213,7 +212,6 @@ body {
 .item-amount {
   height: 100%;
   text-align: right;
-  padding-top: 20px;
   font-size: 26px;
   font-family: 'Open Sans';
   font-weight: 800;
@@ -324,11 +322,12 @@ body {
   color: #919aa3;
 }
 
-.checkont {
+.checkout {
   background-color: #f2f2f2;
   padding: 5px 20px 15px 20px;
   border: 1px solid lightgrey;
   border-radius: 3px;
+  overflow: auto;
 }
 input[type=text] {
   width: 60%;

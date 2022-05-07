@@ -38,7 +38,6 @@ function Cart({ token }) {
 
             <ul className="cart-items">
                 {cartItems.map(product => {
-                    console.log(product.item);
                     return (
                         <li className="cart-item" key={product.item.menuItem.itemID}>
                             <button
