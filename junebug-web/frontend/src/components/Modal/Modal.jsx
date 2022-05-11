@@ -18,6 +18,11 @@ function Modal({ handleClose, menuItem }) {
         addToCart(dispatch, item);
     }
 
+    function overall() {
+        handleAddToCart();
+        handleClose();
+    }
+
     return ReactDom.createPortal(
         <>
             <div className="modal-overlay" />
@@ -41,7 +46,7 @@ function Modal({ handleClose, menuItem }) {
                             />
                         </div>
                     </form>
-                    <button className="modal-addCart" onClick={handleAddToCart}>Add to Cart</button>
+                    <button className="modal-addCart" onClick={overall}>Add to Cart</button>
                 </div>
             </div>
         </>,

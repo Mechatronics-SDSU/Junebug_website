@@ -13,6 +13,8 @@ function RestCard({object, route}) {
             <div className="card-image">
                 <img src={object.imname}  alt={`${object.name}`}/>
             </div>
+            <div class="imggap">
+            </div>
             <div className="card-title">
                 {object.name}
             </div>
