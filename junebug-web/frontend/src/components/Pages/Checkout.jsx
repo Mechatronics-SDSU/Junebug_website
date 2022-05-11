@@ -152,7 +152,7 @@ function Checkout({ token }) {
                                 <div class="cardrow">
                                     <div class="col-50">
                                         <label for="cardnum">Card Number:</label>
-                                        <input type="text"
+                                        <input type="sectext"
                                             id="cardnum"
                                             name="cardnum"
                                             placeholder="Card Number"
@@ -165,7 +165,7 @@ function Checkout({ token }) {
                                     </div>
                                     <div class="col-50">
                                         <label for="zipcode">Zip Code:</label>
-                                        <input type="text"
+                                        <input type="sectext"
                                             id="zipcode"
                                             name="zipcode"
                                             placeholder="Zip Code"
@@ -176,7 +176,7 @@ function Checkout({ token }) {
                                 <div class="smtrow">
                                     <div class="col-50">
                                         <label for="secNum">Enter Security Number: </label>
-                                        <input type="text"
+                                        <input type="sectext"
                                             id="secNum"
                                             name="secNum"
                                             placeholder="Security #"
@@ -188,7 +188,7 @@ function Checkout({ token }) {
                                     </div>
                                     <div class="col-50">
                                         <label for="secNum">Enter Expiry Data: </label>
-                                        <input type="text"
+                                        <input type="sectext"
                                             id="expiry"
                                             name="expiry"
                                             value={expiry}

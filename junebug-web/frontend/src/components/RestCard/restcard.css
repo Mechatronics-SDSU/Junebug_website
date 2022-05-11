@@ -21,6 +21,12 @@
     height: 50%;
 }
 
+/* .card-image img{
+    overflow: hidden;
+    width: 50%;
+    height: auto;
+} */
+
 .card-image img{
     overflow: hidden;
     width: 50%;

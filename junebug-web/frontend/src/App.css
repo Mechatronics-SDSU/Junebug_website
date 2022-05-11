@@ -265,10 +265,22 @@ body {
 }
 
 .user-container {
-  justify-content: center;
+  /* justify-content: center;
   height: 70vh;
   background-color: white;
-  overflow: auto;
+  overflow: auto; */
+  background-color: white;
+  padding: 5px 500px 15px 500px;
+  border: 0px solid lightgrey;
+  border-radius: 3px;
+}
+
+.userrow{
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 102px 0 230px;
 }
 
 .user-wrap{
@@ -365,7 +377,14 @@ input[type=text] {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-
+input[type=sectext] {
+  font-size: 20px;
+  width: 90%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
 label {
   margin-bottom: 10px;
   display: block;
