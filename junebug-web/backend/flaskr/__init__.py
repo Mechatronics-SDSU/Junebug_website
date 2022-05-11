@@ -1,9 +1,9 @@
 from passlib.hash import pbkdf2_sha256
-from flask import Flask, redirect, render_template, url_for, request
+from flask import Flask, redirect, url_for, request
 from pymongo import MongoClient
 from flask.json import jsonify
 import json
-from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+# from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask_cors import CORS
 
 # create an instance of the flask class 
