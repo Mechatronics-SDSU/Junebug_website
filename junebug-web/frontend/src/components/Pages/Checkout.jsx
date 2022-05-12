@@ -64,16 +64,16 @@ function Checkout({ token }) {
     }
 
     return (
-        <div class="row">
-            <div class="col-75">
-                <div class="container">
+        <div className="row">
+            <div className="col-75">
+                <div className="container">
                     <form>
-                        <div class="row">
-                            <div class="col-50">
-                            <div class="titledi1">
+                        <div className="row">
+                            <div className="col-50">
+                            <div className="titledi1">
                                 <h3>Billing Address and Delivery Info</h3>
                             </div>
-                                <label for="firstName"><i class="fa fa-user"></i> First Name</label>
+                                <label for="firstName"><i className="fa fa-user"></i> First Name</label>
                                 <input type="text"
                                     id="firstName"
                                     name="firstName"
@@ -82,7 +82,7 @@ function Checkout({ token }) {
                                     onChange={e => setfirstName(e.target.value)}
                                     required
                                 />
-                                <label for="lname"><i class="fa fa-user"></i> Last Name</label>
+                                <label for="lname"><i className="fa fa-user"></i> Last Name</label>
                                 <input type="text"
                                     id="lastName"
                                     name="lastName"
@@ -91,7 +91,7 @@ function Checkout({ token }) {
                                     onChange={e => setlastName(e.target.value)}
                                     required
                                 />
-                                <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                                <label for="email"><i className="fa fa-envelope"></i> Email</label>
                                 <input type="text"
                                     id="email"
                                     name="email"
@@ -100,7 +100,7 @@ function Checkout({ token }) {
                                     onChange={e => setEmail(e.target.value)}
                                     required
                                 />
-                                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                                <label for="adr"><i className="fa fa-address-card-o"></i> Address</label>
                                 <input type="text"
                                     id="address"
                                     name="address"
@@ -110,8 +110,8 @@ function Checkout({ token }) {
                                     required
                                 />
 
-                                <div class="row">
-                                    <div class="col-50">
+                                <div className="row">
+                                    <div className="col-50">
                                         <label for="city"> City</label>
                                         <input type="text"
                                             id="city"
@@ -122,7 +122,7 @@ function Checkout({ token }) {
                                             required
                                         />
                                     </div>
-                                    <div class="col-50">
+                                    <div className="col-50">
                                         <label for="destination">Choose Delivery Location: </label>
                                         <select name="destination" value={dest} onChange={e => setDest(e.target.value)} id="destination">
                                             <option value="Storm Hall">Storm Hall</option>
@@ -138,7 +138,7 @@ function Checkout({ token }) {
 
 
                             <div className="col-50">
-                                <div class="titledi2">
+                                <div className="titledi2">
                                     <h3>Payment</h3>
                                 </div>
                                 <Cards
@@ -149,8 +149,8 @@ function Checkout({ token }) {
                                     focused={focus}
                                 />
                                 <br></br>
-                                <div class="cardrow">
-                                    <div class="col-50">
+                                <div className="cardrow">
+                                    <div className="col-50">
                                         <label for="cardnum">Card Number:</label>
                                         <input type="sectext"
                                             id="cardnum"
@@ -163,7 +163,7 @@ function Checkout({ token }) {
                                             required
                                         />
                                     </div>
-                                    <div class="col-50">
+                                    <div className="col-50">
                                         <label for="zipcode">Zip Code:</label>
                                         <input type="sectext"
                                             id="zipcode"
@@ -173,8 +173,8 @@ function Checkout({ token }) {
                                     </div>
                                 </div>
 
-                                <div class="smtrow">
-                                    <div class="col-50">
+                                <div className="smtrow">
+                                    <div className="col-50">
                                         <label for="secNum">Enter Security Number: </label>
                                         <input type="sectext"
                                             id="secNum"
@@ -186,7 +186,7 @@ function Checkout({ token }) {
                                             required
                                         />
                                     </div>
-                                    <div class="col-50">
+                                    <div className="col-50">
                                         <label for="secNum">Enter Expiry Data: </label>
                                         <input type="sectext"
                                             id="expiry"

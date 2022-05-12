@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-function User({ token }) {                     //takes the token input
-    const userID = token["userID"];  //gets userID from the token
+function User({ token }) {              //takes the token input
+    const userID = token["userID"];     //gets userID from the token
     const [bio, setBio] = useState([]); //declare state variable items 
     const [orders, setOrders] = useState([]);
 
@@ -23,53 +23,86 @@ function User({ token }) {                     //takes the token input
     return (
         <>
             <div className="user-container">
-            <h1>User Account</h1>
+                <h1>User Account</h1>
                 {bio.map(item => {
                     return (
-                        <div className="userrow">
-                            <div className="col-50">
-                                <div className="data">
-                                    <h2>Name</h2>
-                                    <p>{item.firstName} {item.lastName}</p>
+                        <table className="user-row">
+                            <tr className="col-50">
+                                <div className="user-data">
+                                    <div>
+                                        <h2><u>NAME</u></h2>
+                                    </div>
+                                    <h2 className="user-item-data">{item.firstName} {item.lastName}</h2>
                                 </div>
-                                <div className="data">
-                                    <h2>Email</h2>
-                                    <p>{item.email}</p>
+                                <div className="user-data">
+                                    <div>
+                                        <h2><u>EMAIL</u></h2>
+                                    </div>
+                                    <h2 className="user-item-data">{item.email}</h2>
                                 </div>
-                            </div>
-                            <div className="col-50">
-                                <div className="data">
-                                    <h2>Phone</h2>
-                                    <p>{item.phoneNum}</p>
+                            </tr>
+                            <tr className="col-50">
+                                <div className="user-data">
+                                    <div>
+                                        <h2><u>PHONE #</u></h2>
+                                    </div>
+                                    <h2 className="user-item-data">{item.phoneNum}</h2>
                                 </div>
-                                <div className="data">
-                                    <h2>Type</h2>
-                                    <p>Member</p>
+                                <div className="user-data">
+                                    <div>
+                                        <h2><u>TYPE</u></h2>
+                                    </div>
+                                    <h2 className="user-item-data">Member</h2>
                                 </div>
-                            </div>
-                        </div>
+                            </tr>
+                        </table>
                     )
                 })}
-                <div className="order-history-container">
-                    <h1>Order History</h1>
-                    {orders.map(order => {
-                        return (
-                            <div className="order-container">
-                                <h3>Order Total: ${order.total}</h3>
-                                {order.cartItems.map(product => {
-                                    return (
-                                        <div className="order-item">
-                                            <p>{product.item.menuItem.restName}</p>
-                                            <p>{product.item.menuItem.name}</p>
-                                            <p>{product.item.quantity}</p>
-                                        </div>
-                                    )
-                                })}
-
-                            </div>
-                        )
-                    })}
-                </div>
+                <h1>Order History</h1>
+                <table className="user-table">
+                    <thead>
+                        <tr>
+                            <th>Order #</th>
+                            <th>Location</th>
+                            <th>Restaurant</th>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {orders.map(order => {
+                            return (
+                                <tr className="user-order-container">
+                                    <td>{order.orderID}</td>
+                                    <td>{order.destination}</td>
+                                    <td>
+                                        {order.cartItems.map(product => {
+                                            return (
+                                                <div className="user-item">{product.item.menuItem.restName}</div>
+                                            )
+                                        })}
+                                    </td>
+                                    <td>
+                                        {order.cartItems.map(product => {
+                                            return (
+                                                <div className="user-item">{product.item.menuItem.name}</div>
+                                            )
+                                        })}
+                                    </td>
+                                    <td>
+                                        {order.cartItems.map(product => {
+                                            return (
+                                                <div className="user-item">{product.item.quantity}</div>
+                                            )
+                                        })}
+                                    </td>
+                                    <td>${order.total}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
             </div>
 
         </>

@@ -94,7 +94,8 @@ def checkout():
     total = request.get_json()["total"]
     orderID = order.count_documents({}) + 1
     new_order = {"userID": userID["userID"], "cartItems": cartItems, "firstName": firstname, "lastName": lastname, "email": email, 
-                 "address": address, "city": city, "cardNum": cardNum, "secNum": secNum, "expiry": expiry, "destination": dest, "total": total 
+                 "address": address, "city": city, "cardNum": cardNum, "secNum": secNum, "expiry": expiry, "destination": dest, 
+                 "total": total, "orderID": orderID 
                 } #add order quantity, price, items
     order.insert_one(new_order)
     return {"success": "order placed"}
@@ -107,7 +108,7 @@ def userinfo():
     orders = []
     for i in user.find({"userID": userID},{"_id" : 0, "firstName": 1, "lastName": 1, "email": 1, "phoneNum": 1}):
         bio.append(i)
-    for i in order.find({"userID": userID}, {"_id" : 0, "destination": 1, "total": 1, "cartItems": 1}):
+    for i in order.find({"userID": userID}, {"_id" : 0, "destination": 1, "total": 1, "cartItems": 1, "orderID": 1}):
         orders.append(i)
     return jsonify({"bio": bio,"orders": orders})
 
