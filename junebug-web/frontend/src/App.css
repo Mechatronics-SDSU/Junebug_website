@@ -427,20 +427,20 @@ th {
 
 
 input[type=text] {
-  width: 90%;
+  width: 100%;
   margin-bottom: 20px;
   padding: 10px;
   border: 2px solid red;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 20px;
 }
 
 input[type=email]  {
-  width: 90%;
+  width: 100%;
   margin-bottom: 20px;
   padding: 10px;
   border: 2px solid red;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 20px;
 }
 
@@ -449,7 +449,7 @@ input[type=sectext] {
   margin-bottom: 20px;
   padding: 10px;
   border: 2px solid red;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 20px;
 }
 
@@ -489,12 +489,17 @@ span.price {
 }
 
 .destination {
-  width: 85%;
+  width: 100%;
   margin-bottom: 20px;
-  padding: 12px;
+  padding: 10px;
   border: 2px solid red;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 20px;
+  margin-left: 1.5rem;
+}
+
+.dest-label{
+  margin-left: 1.5rem;
 }
 
 #cardnum {

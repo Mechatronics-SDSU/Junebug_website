@@ -130,7 +130,7 @@ function Checkout({ token }) {
                                         />
                                     </div>
                                     <div className="col-50">
-                                        <label for="destination">Choose Delivery Location: </label>
+                                        <label for="destination" className="dest-label">Choose Delivery Location: </label>
                                         <select className="destination" value={dest} onChange={e => setDest(e.target.value)} id="destination">
                                             <option value="Storm Hall">Storm Hall</option>
                                             <option value="Love Library">Love Library</option>

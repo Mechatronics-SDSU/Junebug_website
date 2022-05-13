@@ -38,7 +38,7 @@ function Login({setToken, removeToken}) {
         <div class= "login"> 
         <center> <h1> Login </h1> </center>   
         <form onSubmit={handleSubmit}>  
-            <div class= "login-container">   
+            <div class= "login-container">  
                 <input type="email" 
                     placeholder="Enter Email" 
                     name="email" 
