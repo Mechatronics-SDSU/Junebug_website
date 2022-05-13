@@ -44,16 +44,14 @@ function Signup({setToken, removeToken}) {
         <div class= "signup"> 
         <center> <h1> Register </h1> </center>   
         <form onSubmit={handleSubmit}>  
-            <div class= "signup-container">   
-                <label>Email : </label>   
+            <div class= "signup-container"> 
                 <input type="email" 
                     placeholder="Enter Email" 
                     name="email" 
                     value={email} 
                     onChange={e => setEmail(e.target.value)}
                     required
-                />  
-                <label>Password : </label>   
+                />    
                 <input type="password" 
                     placeholder="Enter Password" 
                     name="password"
@@ -61,28 +59,26 @@ function Signup({setToken, removeToken}) {
                     onChange={e => setPassword(e.target.value)}
                     required 
                 />
-                <label>First Name : </label>   
                 <input type="firstName" 
                     placeholder="First Name" 
                     name="firstName"
                     value={firstName}
                     onChange={e => setfirstName(e.target.value)}
                     required 
-                />  
-                <label>Last Name : </label>   
+                />    
                 <input type="lastName" 
                     placeholder="Last Name" 
                     name="lastName"
                     value={lastName}
                     onChange={e => setlastName(e.target.value)}
                     required 
-                />  
-                <label>Phone Number : </label>   
+                />   
                 <input type="phoneNum" 
                     placeholder="Phone Number" 
                     name="phoneNum"
                     value={phoneNum}
                     onChange={e => setphoneNum(e.target.value)}
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     required 
                 />    
                 <button type="submit">Sign Up</button>      

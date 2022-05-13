@@ -71,7 +71,7 @@ function Checkout({ token }) {
                         <div className="row">
                             <div className="col-50">
                             <div className="titledi1">
-                                <h3>Billing Address and Delivery Info</h3>
+                                <h2>Billing Address and Delivery Info</h2>
                             </div>
                                 <label for="firstName"><i className="fa fa-user"></i> First Name</label>
                                 <input type="text"
@@ -92,7 +92,7 @@ function Checkout({ token }) {
                                     required
                                 />
                                 <label for="email"><i className="fa fa-envelope"></i> Email</label>
-                                <input type="text"
+                                <input type="email"
                                     id="email"
                                     name="email"
                                     placeholder="john@example.com"
@@ -124,7 +124,7 @@ function Checkout({ token }) {
                                     </div>
                                     <div className="col-50">
                                         <label for="destination">Choose Delivery Location: </label>
-                                        <select name="destination" value={dest} onChange={e => setDest(e.target.value)} id="destination">
+                                        <select className="destination" value={dest} onChange={e => setDest(e.target.value)} id="destination">
                                             <option value="Storm Hall">Storm Hall</option>
                                             <option value="Love Library">Love Library</option>
                                             <option value="GMCS">GMCS</option>
@@ -139,7 +139,7 @@ function Checkout({ token }) {
 
                             <div className="col-50">
                                 <div className="titledi2">
-                                    <h3>Payment</h3>
+                                    <h2>Payment</h2>
                                 </div>
                                 <Cards
                                     number={cardNum}
@@ -157,10 +157,11 @@ function Checkout({ token }) {
                                             name="cardnum"
                                             placeholder="Card Number"
                                             value={cardNum}
-                                            // onChange={e => { validateCreditCard(e.target.value); setCardnum(e.target.value) }}
                                             onChange={e => setCardnum(e.target.value)}
                                             onFocus={e => setFocus(e.target.value)}
                                             required
+                                            maxLength={3}
+                                            minLength={3}
                                         />
                                     </div>
                                     <div className="col-50">
@@ -183,6 +184,7 @@ function Checkout({ token }) {
                                             value={Secnum}
                                             onChange={e => setSecnum(e.target.value)}
                                             onFocus={e => setFocus(e.target.value)}
+                                            maxLength="3"
                                             required
                                         />
                                     </div>
@@ -195,6 +197,7 @@ function Checkout({ token }) {
                                             placeholder='MM/YY'
                                             onChange={e => setExpiry(e.target.value)}
                                             onFocus={e => setFocus(e.target.value)}
+                                            pattern="[0-9]{2}/[0-9]{2}"
                                             required
                                         />
                                     </div>
