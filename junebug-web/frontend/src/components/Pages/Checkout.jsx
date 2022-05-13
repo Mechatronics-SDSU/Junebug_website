@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartStateContext } from "../../contexts/CartContext";
+import { CartStateContext, CartDispatchContext, clearCart } from "../../contexts/CartContext";
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css'
 
@@ -17,6 +17,7 @@ async function CheckOut(credentials) {
 
 function Checkout({ token }) {
     const cartItems = useContext(CartStateContext);
+    const dispatch = useContext(CartDispatchContext);
     const userID = token["userID"];
     const [firstName, setfirstName] = useState('');
     const [lastName, setlastName] = useState('');
@@ -42,24 +43,30 @@ function Checkout({ token }) {
 
     const handleCheckout = async (e) => {
         e.preventDefault();
-        const orderresult = await CheckOut({
-            cartItems,
-            total,
-            userID,
-            firstName,
-            lastName,
-            address,
-            city,
-            dest,
-            email,
-            cardNum,
-            expiry,
-            Secnum,
-        });
-        if (orderresult["success"] === "order placed") {
-            alert("Order Success")
-            navigate("/Junebug_website/", { replace: true });
-
+        if(firstName&&lastName&&address&&city&&dest&&email&&cardNum
+            &&expiry&&Secnum){
+                const orderresult = await CheckOut({
+                    cartItems,
+                    total,
+                    userID,
+                    firstName,
+                    lastName,
+                    address,
+                    city,
+                    dest,
+                    email,
+                    cardNum,
+                    expiry,
+                    Secnum,
+                });
+                if (orderresult["success"] === "order placed") {
+                    alert("Order Success")
+                    navigate("/Junebug_website/", { replace: true });
+                    clearCart(dispatch);
+                }
+            }
+        else {
+            alert("Checkout has incorrect information");
         }
     }
 
@@ -159,9 +166,11 @@ function Checkout({ token }) {
                                             value={cardNum}
                                             onChange={e => setCardnum(e.target.value)}
                                             onFocus={e => setFocus(e.target.value)}
+                                            maxLength={16}
+                                            minLength={16}
+                                            pattern="[0-9]{16}"
                                             required
-                                            maxLength={3}
-                                            minLength={3}
+
                                         />
                                     </div>
                                     <div className="col-50">
@@ -184,7 +193,8 @@ function Checkout({ token }) {
                                             value={Secnum}
                                             onChange={e => setSecnum(e.target.value)}
                                             onFocus={e => setFocus(e.target.value)}
-                                            maxLength="3"
+                                            maxLength={3}
+                                            minLength={3}
                                             required
                                         />
                                     </div>
@@ -198,6 +208,8 @@ function Checkout({ token }) {
                                             onChange={e => setExpiry(e.target.value)}
                                             onFocus={e => setFocus(e.target.value)}
                                             pattern="[0-9]{2}/[0-9]{2}"
+                                            maxLength={5}
+                                            minLength={5}
                                             required
                                         />
                                     </div>
@@ -207,7 +219,7 @@ function Checkout({ token }) {
                         <div className="checkout-container">
                             <h3>Sub Total: ${subTotal}</h3>
                             <h3>Tax Cost: ${tax}</h3>
-                            <h3>Total: ${total}</h3>
+                            <h1 className="cart-checkout-total">Total: ${total}</h1>
                             <button className="cart-checkout-btn" onClick={handleCheckout}>Checkout</button>
                         </div>
                     </form>

@@ -1,10 +1,6 @@
 import { createContext, useEffect, useReducer } from "react";
 import useSessionStorage from "../hooks/useSessionStorage";
 
-const initialState = [
-    
-];
-
 export const CartDispatchContext = createContext();
 export const CartStateContext = createContext();
 
@@ -44,7 +40,10 @@ const reducer = (state, action) => {
                 return product;
             });
             return [...state];
-            
+        
+        case "CLEAR_CART":
+            return [];
+        
         default:
             return state;
     }
@@ -76,6 +75,12 @@ export const updateCart = (dispatch, updateItem) => {
             quantity: updateItem.quantity
         }
     });
+}
+
+export const clearCart= (dispatch) => {
+    dispatch({
+        type: 'CLEAR_CART'
+    })
 }
 
 function CartProvider({ children }) {
