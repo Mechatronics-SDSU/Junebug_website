@@ -44,7 +44,7 @@ function Cart({ token }) {
                                 className="cart-remove"
                                 onClick={() => handleRemove(product.item.menuItem.itemID)}
                             >x</button>
-                            <div>
+                            <div className="cart-image-container">
                                 <img className="cart-image" src={product.item.menuItem.fname} alt={`${product.item.menuItem.name}`} />
                             </div>
                             <div className="cart-item-about">

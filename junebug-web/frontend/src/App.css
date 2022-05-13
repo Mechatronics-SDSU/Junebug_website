@@ -205,11 +205,12 @@ body {
 .cart-remove {
   color: red;
   background-color: transparent;
-  padding: 0.rem 0.75rem;
-  font-size: 28px;
+  padding: 0.5rem 0.75rem;
+  font-size: 20px;
   cursor: pointer;
   border-color: red;
   border-radius: 3px;
+  margin: 20px;
 }
 
 .cart-remove:hover {
@@ -222,9 +223,8 @@ body {
   display: flex;
   height: 30%;
   border-radius: 5px;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 12px;
 }
 
 .cart-item:hover {
@@ -234,32 +234,20 @@ body {
 
 .cart-item-about {
   height: 100%;
+  width: 50%;
+  text-align: center;
+  padding-right: 10rem;
 }
+
+.cart-image-container {
+  width: 15%;
+  justify-content: center;
+  display: flex;
+}
+
 
 .cart-image {
-  width: 15%;
-  text-align: center;
-}
-
-.item-total {
-  display: flex;
-  justify-content: end;
-}
-
-.item-total button {
-  margin: 1em;
-}
-
-.item-counter {
-  display: flexbox;
-  width: 15%;
-  align-items: center;
-}
-
-.item-quantity {
-  width: 30px;
-  text-align: center;
-  height: 20px;
+  width: 50%;
 }
 
 .item-name {
@@ -277,6 +265,29 @@ body {
   font-weight: 600;
   color: #909090;
 }
+
+.item-total {
+  display: flex;
+  justify-content: end;
+}
+
+.item-total button {
+  margin: 1em;
+}
+
+.item-counter {
+  display: flexbox;
+  width: 5%;
+  align-items: center;
+}
+
+.item-quantity {
+  width: 30px;
+  text-align: center;
+  height: 20px;
+}
+
+
 
 .item-amount {
   text-align: right;
@@ -357,8 +368,6 @@ th {
   padding: 0.75rem;
 }
 
-
-
 .user-container {
   background-color: white;
   padding: 5px 0px 15px 0px;
@@ -420,7 +429,7 @@ th {
 input[type=text] {
   width: 90%;
   margin-bottom: 20px;
-  padding: 12px;
+  padding: 10px;
   border: 2px solid red;
   border-radius: 3px;
   font-size: 20px;
@@ -429,7 +438,7 @@ input[type=text] {
 input[type=email]  {
   width: 90%;
   margin-bottom: 20px;
-  padding: 12px;
+  padding: 10px;
   border: 2px solid red;
   border-radius: 3px;
   font-size: 20px;
@@ -438,7 +447,15 @@ input[type=email]  {
 input[type=sectext] {
   width: 90%;
   margin-bottom: 20px;
-  padding: 12px;
+  padding: 10px;
+  border: 2px solid red;
+  border-radius: 3px;
+  font-size: 20px;
+}
+
+input[type=number]{
+  width: 50%;
+  padding: 10px;
   border: 2px solid red;
   border-radius: 3px;
   font-size: 20px;
