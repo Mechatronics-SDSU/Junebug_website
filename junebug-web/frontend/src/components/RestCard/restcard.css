@@ -31,6 +31,7 @@
     overflow: hidden;
     width: 50%;
     height: auto;
+    border-radius: 50%;
 }
 
 .card-title{
@@ -47,4 +48,11 @@
     font-family: 'Open Sans';
     font-weight: 600;
     color: #909090;
+}
+.card-body2 {
+    line-height: 10px;
+    font-size: 18px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #202020;
 }
