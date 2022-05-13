@@ -19,11 +19,12 @@
  
 .menu-card-image{
     overflow: hidden;
-    height: 75%;
+    height: 60%;
 }
 
 .menu-card-image img{
     overflow: hidden;
     width: 50%;
     height: auto;
+    border-radius: 50%;
 }
