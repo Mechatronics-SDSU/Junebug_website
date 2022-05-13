@@ -39,7 +39,6 @@ function Login({setToken, removeToken}) {
         <center> <h1> Login </h1> </center>   
         <form onSubmit={handleSubmit}>  
             <div class= "login-container">   
-                <label>Email : </label>   
                 <input type="email" 
                     placeholder="Enter Email" 
                     name="email" 
@@ -47,7 +46,6 @@ function Login({setToken, removeToken}) {
                     onChange={e => setEmail(e.target.value)}
                     required
                 />  
-                <label>Password : </label>   
                 <input type="password" 
                     placeholder="Enter Password" 
                     name="password"
@@ -55,8 +53,7 @@ function Login({setToken, removeToken}) {
                     onChange={e => setPassword(e.target.value)}
                     required 
                 />  
-                <button type="submit">Login</button>   
-                <input type="checkbox" checked="checked"/> Remember me     
+                <button type="submit">Login</button>    
             </div>   
         </form>
         </div>

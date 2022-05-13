@@ -41,10 +41,12 @@ function Cart({ token }) {
                     return (
                         <li className="cart-item" key={product.item.menuItem.itemID}>
                             <button
-                                className="item-remove"
+                                className="cart-remove"
                                 onClick={() => handleRemove(product.item.menuItem.itemID)}
                             >x</button>
-                            <img className="cart-image" src={product.item.menuItem.fname} alt={`${product.item.menuItem.name}`} />
+                            <div>
+                                <img className="cart-image" src={product.item.menuItem.fname} alt={`${product.item.menuItem.name}`} />
+                            </div>
                             <div className="cart-item-about">
                                 <h1 className="item-name">{product.item.menuItem.name}</h1>
                                 <h3 className="item-restName">{product.item.menuItem.restName}</h3>
