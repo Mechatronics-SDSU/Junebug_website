@@ -7,8 +7,12 @@ function MenuCard({object, handleClick}) {
             <div className="menu-card-image">
                 <img src={object.fname}  width="500" height="500" alt={`${object.name}`}/>
             </div>
-            <div className="menu-card-title">
-                {object.price} {object.name}
+            <div className="card-title">
+                {object.name}
+            </div>
+            <br></br>
+            <div className="card-body2">
+                {object.price} 
             </div>
         </div>
     );
