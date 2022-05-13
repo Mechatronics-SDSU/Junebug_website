@@ -248,6 +248,7 @@ body {
 
 .cart-image {
   width: 50%;
+  border-radius: 50%;
 }
 
 .item-name {
